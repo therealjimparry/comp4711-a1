@@ -13,10 +13,20 @@
 
         // Returns all planes from json format from server
         public function all () {
-            $page = "http://wacky.jlparry.com/info/airplanes";
-            $json_planes = file_get_contents ($page);
+
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_URL, 'http://wacky.jlparry.com/info/airplanes');
+            $result = curl_exec($ch);
+            curl_close($ch);
+
+            // $page = "http://wacky.jlparry.com/info/airplanes";
+            // $json_planes = file_get_contents ($page);
             
-            return $json_planes;
+            // return $json_planes;
+
+            return $result;
         }
 
     }
