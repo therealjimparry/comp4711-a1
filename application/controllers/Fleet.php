@@ -2,6 +2,9 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+/*
+	Fleet controller passes data from Fleets model to views
+*/
 class Fleet extends Application
 {
 
