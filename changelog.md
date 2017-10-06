@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [Unreleased] - DH & YR
+### Added
+- Airlines Model which uses curl to retrieve all the airlines
+
+### Changed
+- Fleets Model now correctly parses json
+- Fleets::all() incorrecly called data() function rather than var data
+- Fleet Controller uses Fleet model rather than Planes model
+
 ## [Unreleased] - DH
 ### Added
 - Fleet Controller

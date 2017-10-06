@@ -1,5 +1,4 @@
 <?php
-
     /*
         Model for fleet.
         Gets all plane data from Plane and creates fleet using name
@@ -16,6 +15,7 @@
             $index = -1;
             
             // Iterate through each record in associate array and check if type matches plane in fleet
+            // assigns a plane to the fleet if it's name matches the selected planes
             foreach ($temp as $key => $record) {
                 $check = false;
                 if (!empty ($record["id"])) {
@@ -29,7 +29,7 @@
                             $check = false;
                     }
                     if ($check)
-                        $this -> data[++$index] = $record["id"];
+                        $this -> data[++$index] = $record;
                 }
             }
             
@@ -38,7 +38,7 @@
 
         // Returns all the planes in the fleet
         function all () {
-            return $this -> data();
+            return $this -> data;
         }
 
         // Returns a plane which is in the fleet
