@@ -4,7 +4,7 @@
         Model for plane.
         Gets all plane data from json from server
     */
-    class Plane extends CI_Model {
+    class Planes extends CI_Model {
 
         // This hereby is a constructor
         public function __construct () {

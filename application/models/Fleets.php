@@ -4,14 +4,14 @@
         Model for fleet.
         Gets all plane data from Plane and creates fleet using name
     */
-    class Fleet extends CI_Model {
+    class Fleets extends CI_Model {
         var $data;
 
         // Constructor, gets all planes and adds to data array planes that are in the fleet
         function __construct () {
             parent::__construct();
 
-            $temp = json_decode ($this -> plane -> all (), true);
+            $temp = json_decode ($this -> planes -> all (), true);
             
             $index = -1;
             
