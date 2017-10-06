@@ -12,29 +12,28 @@
         public function __construct () 
         {
             parent::__construct ();
-
             $ch = curl_init();
-            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             curl_setopt($ch, CURLOPT_URL, 'https://wacky.jlparry.com/info/airlines');
             $result = curl_exec($ch);
             curl_close($ch);
-
-            $this -> data = json_decode($result);
-
+            $this -> data = json_decode($result, true);
         }
 
         // Returns all airlines
         public function all() 
         {
-            return $this -> data();
+            return $this -> data;
         }
 
         // Returns a specific airline
         public function get($which)
         {
-            return !isset ($this -> data[$which]) ? null: $this -> data[$which];
+            foreach ($this -> data as $value)
+                if ($value["id"] == $which)
+                    return $value;
+            return null;
         }
-
     }
 ?>
