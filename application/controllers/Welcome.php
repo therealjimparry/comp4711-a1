@@ -20,7 +20,7 @@ class Welcome extends Application
 	public function index()
 	{
 		$this->data['pagebody'] = 'welcome_message';
-		$this->data['planes']   = $this->planes->all();
+		$this->data['flights'] = $this -> flights -> all();
 		$this->render(); 
 	}
 
