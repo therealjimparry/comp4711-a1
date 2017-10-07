@@ -12,7 +12,7 @@
 
             $temp = json_decode ($this -> planes -> all (), true);
             
-            $index = -1;
+            $ap = -1;
             
             // Iterate through each record in associate array and check if type matches plane in fleet
             // assigns a plane to the fleet if it's name matches the selected planes
@@ -28,8 +28,10 @@
                         default :
                             $check = false;
                     }
-                    if ($check)
-                        $this -> data[++$index] = $record;
+                    if ($check) {
+                        ++$ap;
+                        $this -> data["a$ap"] = $record;
+                    }
                 }
             }
             
