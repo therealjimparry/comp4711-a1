@@ -11,16 +11,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 class Info extends Application
 {
-
-	/**
-	 * Index Page for this controller.
-	 */
-	public function index()
-	{
-		$this->data['pagebody'] = 'information';
-		$this->render(); 
-    }
-    
     /**
      * fleet sub controller method to retreive and display all data in fleet as JSON
      */
