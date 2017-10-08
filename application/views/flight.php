@@ -6,7 +6,7 @@
        {all_flights}
         <table>
         <tr>
-            <th>Flight {aircraftCode}</th>
+            <th>Flight {key}</th>
             <th>departing from {departureLocation} to</th>
             <th>{destinationLocation}</th>
         </tr>
@@ -16,6 +16,3 @@
 
     </div>
 </div>
-
-<?php
-

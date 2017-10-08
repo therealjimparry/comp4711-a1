@@ -6,5 +6,3 @@
     {key}
     {/fleets}
 </div>
-
-<?php
