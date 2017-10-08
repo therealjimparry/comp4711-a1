@@ -2,6 +2,6 @@
     <div class="span4">
        {flight}
         {departureLocation}
-        {/flight}
+       {/flight}
     </div>
 </div>
