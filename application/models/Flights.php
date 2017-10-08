@@ -48,6 +48,7 @@
             );
         }
 
+        // returns airports for the flights
         function flight_airports () {
             return $this -> airports;
         }
