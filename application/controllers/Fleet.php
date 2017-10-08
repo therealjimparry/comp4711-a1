@@ -23,7 +23,7 @@ class Fleet extends Application
 	 */
 	public function show($id) {
 		$this->data['pagebody'] = 'plane';
-		$source = $this -> planes -> get ($id);
+		$source = $this -> fleets -> get ($id);
 		$this->data['plane_info'] = array ("values" => $source);
 		$this -> render();
 	}
