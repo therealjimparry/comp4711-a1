@@ -1,11 +1,28 @@
 {plane_info}
-    {id}
-    {manufacturer}
-    {model}
-    {price}
-    {seats}
-    {reach}
-    {cruise}
-    {takeoff}
-    {hourly}
+<table>
+    <tr>
+        <th>key</th>
+        <th>id</th>
+        <th>manufacturer</th>
+        <th>model</th>
+        <th>price</th>
+        <th>seats</th>
+        <th>reach</th>
+        <th>cruise</th>
+        <th>takeoff</th>
+        <th>hourly</th>
+    </tr>
+    <tr>
+        <td>{key}</td>
+        <td>{id}</td>
+        <td>{manufacturer}</td>
+        <td>{model}</td>
+        <td>{price}</td>
+        <td>{seats}</td>
+        <td>{reach}</td>
+        <td>{cruise}</td>
+        <td>{takeoff}</td>
+        <td>{hourly}</td>
+    </tr>
+</table>
 {/plane_info}
