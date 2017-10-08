@@ -10,6 +10,16 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 
 ## [Unreleased] - YR 
+### Chnaged
+- Updated home controller index method to have nested array for for loop usage in view
+
+## [Unreleased] - YR 
+### Added
+- Home controller for use in homepage
+### Changed
+- Flights Model and Fleets Model
+
+## [Unreleased] - YR 
 ### Changed
 - Modified fleet model to use alphanumeric id (first letter of teamname followed by index)
 
