@@ -14,7 +14,7 @@ class Fleet extends Application
 	public function index()
 	{
 		// To be changed from welcome_message to the view name related to fleet
-		$this->data['pagebody'] = 'welcome_message';
+		$this->data['pagebody'] = 'fleet';
 		$this->data['fleets']   = $this-> fleets -> all();
 		$this->render(); 
 	}

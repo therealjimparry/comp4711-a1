@@ -13,7 +13,7 @@ class Flight extends Application
 	 */
 	public function index()
 	{
-		$this->data['pagebody'] = 'welcome_message';
+		$this->data['pagebody'] = 'flight';
 		$this->data['fleets']   = $this-> flights ->all();
 		$this->render(); 
 	}
