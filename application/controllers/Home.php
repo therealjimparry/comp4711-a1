@@ -13,7 +13,7 @@ class Home extends Application
 	 */
 	public function index()
 	{
-        $this->data['pagebody']   = 'welcome_message';
+        $this->data['pagebody']   = 'home';
         $this -> data['airports'] = array (
             "airport" => $this -> flights -> flight_airports ()
         );
