@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased] - YR 
 ### Changed 
+- Updated routing from show/planecode to fleet/planecode
+
+## [Unreleased] - YR 
+### Changed 
 - Model data structures, after init, for loop for key value pairs
 
 ## [Unreleased] - YR 
