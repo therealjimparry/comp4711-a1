@@ -34,8 +34,11 @@
                     }
                 }
             }
-            
+        }
 
+        // return number of planes in the fleet
+        function count_planes () {
+            return count ($this -> data);
         }
 
         // Returns all the planes in the fleet
