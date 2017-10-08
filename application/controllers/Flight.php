@@ -13,6 +13,8 @@ class Flight extends Application
 	 */
 	public function index()
 	{
+		// To be changed from welcome_message to the view name related to fleet
+		$this->data['pagebody'] = 'flightView';
 		$this->data['pagebody'] = 'welcome_message';
 		$this->data['flights']  = $this -> flights -> all();
 		$this->render(); 
