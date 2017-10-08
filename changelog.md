@@ -4,6 +4,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [Unreleased] - JK
+### Added
+- Added Bootstrap to all the views
+
+## [Unreleased] - SC
+### Changed
+- Tabulated flight view with relevant tooltips
+
+## [Unreleased] - YR 
+### Changed 
+- Updated routing from show/planecode to fleet/planecode
+
 ## [Unreleased] - YR 
 ### Changed 
 - Model data structures, after init, for loop for key value pairs
