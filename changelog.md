@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased] - YR 
 ### Changed 
+- Get more data for view in home controller
+
+## [Unreleased] - YR 
+### Changed 
 - Modified flight model data structure heavily such that the flight number was unique and could be potentially used in
   future.
 - Updated flights view such that it works now
