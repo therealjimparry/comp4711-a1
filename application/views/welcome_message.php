@@ -1,21 +1,15 @@
 <h1>Welcome to Albatros Airlines!</h1>
 <div id="body">
-    <ul class="links" style="display: flex; list-style-type: none; justify-content: space-around;">
-        <li><a href="">Home</a></li>
-        <li><a href="">Fleet</a></li>
-        <li><a href="">Flights</a></li>
-    </ul>
+    <h2 style="text-align: center">Number of planes: {no_planes}</h2>
+    <h2 style="text-align: center">Number of flights: {no_flights}</h2>
 
-    <h2>Number of planes: {no_planes}</h2>
-    <h2>Number of flights: {no_flights}</h2>
-
-    <div>
+    <div style="text-align: center; list-style-type: none;">
         <h2> List of airports:
             {airports}
-            <li>{base}</li>
-            <li>{dest1}</li>
-            <li>{dest2}</li>
-            <li>{dest3}</li>
+            <li>Base Airport: {base}</li>
+            <li>Destination 1: {dest1}</li>
+            <li>Destination 2: {dest2}</li>
+            <li>Destination 3: {dest3}</li>
             {/airports}
         </h2>
     </div>

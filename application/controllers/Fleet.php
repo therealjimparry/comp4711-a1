@@ -13,7 +13,7 @@ class Fleet extends Application
 	 */
 	public function index()
 	{
-		$this->data['pagebody'] = 'fleetView';
+		$this->data['pagebody'] = 'fleet';
 		$this->data['fleets']   = $this-> fleets -> all();
 		$this->render(); 
 	}
