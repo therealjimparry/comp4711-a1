@@ -3,19 +3,24 @@
         <table>
             <tr><th>Dashboard</th></tr>
         </table>
-       {all_flights}
         <table>
         <tr>
-            <th>Flight {aircraftCode}</th>
-            <th>departing from {departureLocation} to</th>
-            <th>{destinationLocation}</th>
+            <th>Flight number</th>
+            <th>Aircraft</th>
+            <th>Departure Location</th>
+            <th>Destination Location</th>
         </tr>
-        </table>
+       {all_flights}
+        <tr title=
+            "Flight: {key}, Aircraft: {aircraftCode}, Departing {departureLocation} at {departureTime}, Destination: {destinationLocation} at {arrivalTime}">
+            <td>{key}</td>
+            <td>{aircraftCode}</td>
+            <td>{departureLocation}</td>
+            <td>{destinationLocation}</td>
+        </tr>
         <br>
         {/all_flights}
+        </table>
 
     </div>
 </div>
-
-<?php
-
