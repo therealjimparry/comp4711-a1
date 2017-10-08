@@ -18,6 +18,10 @@
             $result = curl_exec($ch);
             curl_close($ch);
             $this -> data = json_decode($result, true);
+            foreach ($this -> data as $key => $record) {
+                $record['key'] = "a{$key}";
+                $this->data["a{$key}"] = $record;
+            }
         }
 
         // Returns all airlines

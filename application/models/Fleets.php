@@ -30,6 +30,7 @@
                     }
                     if ($check) {
                         ++$ap;
+                        $record["key"] = "a{$ap}";
                         $this -> data["a$ap"] = $record;
                     }
                 }
