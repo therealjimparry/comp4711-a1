@@ -12,41 +12,55 @@
         function __construct () {
             parent::__construct();
 
-            $airports = $this -> airlines -> get('albatros');
+            $this -> airports = $this -> airlines -> get('albatros');
 
             $this -> data = array(
                 'a1' => array(
-                    'departureLocation' => $airports['base'],
-                    'destinationLocation' => $airports['dest1'],
+                    'departureLocation' => $this -> airports['base'],
+                    'destinationLocation' => $this -> airports['dest1'],
                     'departureTime' => '0800',
                     'arrivalTime' => '1100'
                 ),
                 'a2' => array(
-                    'departureLocation' => $airports['dest1'],
-                    'destinationLocation' => $airports['dest2'],
+                    'departureLocation' => $this -> airports['dest1'],
+                    'destinationLocation' => $this -> airports['dest2'],
                     'departureTime' => '1130',
                     'arrivalTime' => '1430'
                 ),
                 'a3'  => array(
-                    'departureLocation' => $airports['dest2'],
-                    'destinationLocation' => $airports['base'],
+                    'departureLocation' => $this -> airports['dest2'],
+                    'destinationLocation' => $this -> airports['base'],
                     'departureTime' => '1500',
                     'arrivalTime' => '1930'
                 ),
                 'a4' => array(
-                    'departureLocation' => $airports['base'],
-                    'destinationLocation' => $airports['dest3'],
+                    'departureLocation' => $this -> airports['base'],
+                    'destinationLocation' => $this -> airports['dest3'],
                     'departureTime' => '0900',
                     'arrivalTime' => '1200'
                 ),
                 'a5' => array(
-                    'departureLocation' => $airports['dest3'],
-                    'destinationLocation' => $airports['base'],
+                    'departureLocation' => $this -> airports['dest3'],
+                    'destinationLocation' => $this -> airports['base'],
                     'departureTime' => '1230',
                     'arrivalTime' => '1530'
                 ),
             );
+        }
 
+        // returns airports for the flights
+        function flight_airports () {
+            return $this -> airports;
+        }
+
+        // returns name of base airport
+        function base_name () {
+            return $this -> airports['base'];
+        }
+
+        // returns number of flights
+        function count_flights () {
+            return count ($this -> data);
         }
 
         // Returns all the flights in the schedule
@@ -56,7 +70,7 @@
 
         // Returns a flight from the schedule
         function get ($which) {
-            return !isset ($this->data[$which]) ? null: $this -> data[$which];
+            return !isset ($this->data[$which]) ? null : $this -> data[$which];
         }
 
     }
