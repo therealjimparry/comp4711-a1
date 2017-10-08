@@ -14,6 +14,12 @@ class Info extends Application
     /**
      * fleet sub controller method to retreive and display all data in fleet as JSON
      */
+    public function index()
+    {
+        $this->data['pagebody'] = 'info';
+        $this->render();
+    }
+
     public function fleet () {
         $this->data['fleets'] = $this->fleets->all();
         header("Content-type: application/json");
