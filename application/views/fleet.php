@@ -5,5 +5,3 @@
     </div>
     {/fleets}
 </div>
-
-<?php
