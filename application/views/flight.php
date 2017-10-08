@@ -1,26 +1,23 @@
-<div class="row">
-    <div class="span4">
-        <table>
-            <tr><th>Dashboard</th></tr>
+<div class="panel panel-default">
+    <div class="panel-heading">Flight Destination Dashboard</div>
+    <div class="panel-body">
+        <table class="table table-hover table-striped">
+            <thead>
+            <tr>
+                <th>Plane ID</th>
+                <th>Departure</th>
+                <th>Arrival</th>
+            </tr>
+            </thead>
+            {all_flights}
+            <tbody>
+            <tr>
+                <td>{aircraftCode}</td>
+                <td>{departureLocation}</td>
+                <td>{destinationLocation}</td>
+            </tr>
+            </tbody>
+            {/all_flights}
         </table>
-        <table>
-        <tr>
-            <th>Flight number</th>
-            <th>Aircraft</th>
-            <th>Departure Location</th>
-            <th>Destination Location</th>
-        </tr>
-       {all_flights}
-        <tr title=
-            "Flight: {key}, Aircraft: {aircraftCode}, Departing {departureLocation} at {departureTime}, Destination: {destinationLocation} at {arrivalTime}">
-            <td>{key}</td>
-            <td>{aircraftCode}</td>
-            <td>{departureLocation}</td>
-            <td>{destinationLocation}</td>
-        </tr>
-        <br>
-        {/all_flights}
-        </table>
-
     </div>
 </div>

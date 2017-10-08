@@ -1,19 +1,43 @@
-<h1>Welcome to Albatros Airlines!</h1>
-<div id="body">
-    <div style="text-align: center; list-style-type: none;">
-    <h2>Number of planes: {no_planes}</h2>
-    <h2>Number of flights: {no_flights}</h2>
+<div class="row">
+    <div class="col-md-6">
+        <div class="panel panel-info">
+            <div class="panel-heading">Albatros Airlines Fleet</div>
+            <div class="panel-body">
+                Number of Planes: {no_planes}
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="panel panel-danger">
+            <div class="panel-heading">Base Airport</div>
+            <div class="panel-body">
+                {airports}
+                {base}
+                {/airports}
+            </div>
+        </div>
+    </div>
+</div>
 
-    <div>
-        <h2> List of airports: </h2>
-            {airports}
-                <li>Base Airport: {base}</li>
-                <h3>Destinations</h3>
-                <ol>
-                    <li>{dest1}</li>
-                    <li>{dest2}</li>
-                    <li>{dest3}</li>
-                </ol>
-            {/airports}
+<div class="row">
+    <div class="col-md-6">
+        <div class="panel panel-success">
+            <div class="panel-heading">Destination Airports</div>
+            <div class="panel-body">
+                {airports}
+                <p>{dest1}</p>
+                <p>{dest2}</p>
+                <p>{dest3}</p>
+                {/airports}
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="panel panel-warning">
+            <div class="panel-heading">Number of Flight Schedules Today</div>
+            <div class="panel-body">
+                Number of flights: {no_flights}
+            </div>
+        </div>
     </div>
 </div>
