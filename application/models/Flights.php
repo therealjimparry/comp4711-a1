@@ -63,8 +63,10 @@
             }
 
             $arr = array ();
-            foreach ($this -> data as $key => $record)
+            foreach ($this -> data as $key => $record) {
+                $record['key'] = "a{$key}";
                 $arr["a{$key}"] = $record;
+            }
 
             $this -> data = $arr;
         }
