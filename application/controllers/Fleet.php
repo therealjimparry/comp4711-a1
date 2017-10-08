@@ -13,10 +13,19 @@ class Fleet extends Application
 	 */
 	public function index()
 	{
-		// To be changed from welcome_message to the view name related to fleet
 		$this->data['pagebody'] = 'fleetView';
 		$this->data['fleets']   = $this-> fleets -> all();
 		$this->render(); 
+	}
+
+	/**
+	 * Show method for controller, shows specific information for a plane given its identifier
+	 */
+	public function show($id) {
+		$this->data['pagebody'] = 'plane';
+		$source = $this -> planes -> get ($id);
+		$this->data['plane_info'] = array ("values" => $source);
+		$this -> render();
 	}
 
 }

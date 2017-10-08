@@ -1,0 +1,11 @@
+{plane_info}
+    {id}
+    {manufacturer}
+    {model}
+    {price}
+    {seats}
+    {reach}
+    {cruise}
+    {takeoff}
+    {hourly}
+{/plane_info}

@@ -1,5 +1,4 @@
 <?php
-
     /*
         Model for airlines.
         Gets all airlines json data from server
