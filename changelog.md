@@ -5,7 +5,25 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased] - YR 
-### Chnaged
+### Changed 
+- Modified flight model data structure heavily such that the flight number was unique and could be potentially used in
+  future.
+- Updated flights view such that it works now
+
+## [Unreleased] - YR 
+### Added 
+- Plane view to showcase specfic information about a plane
+
+## [Unreleased] - YR 
+### Changed
+- Updated flights model data structure of flights to add aircraft code
+
+## [Unreleased] - NS
+### Added
+- Added a fleetView Model
+
+## [Unreleased] - YR 
+### Changed
 - Updated home controller index method to have nested array for for loop usage in view
 
 ## [Unreleased] - YR 

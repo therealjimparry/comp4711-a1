@@ -1,5 +1,4 @@
 <?php
-
     /*
         Model for airlines.
         Gets all airlines json data from server
@@ -13,7 +12,7 @@
         {
             parent::__construct ();
             $ch = curl_init();
-            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); //change to true before you push
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             curl_setopt($ch, CURLOPT_URL, 'https://wacky.jlparry.com/info/airlines');
             $result = curl_exec($ch);

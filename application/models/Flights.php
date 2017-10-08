@@ -7,45 +7,66 @@
     class Flights extends CI_Model {
         var $data;
         var $airports;
+        var $planes;
 
         // Constructor, gets all albatros related airports and creates a flight list
         function __construct () {
             parent::__construct();
 
             $this -> airports = $this -> airlines -> get('albatros');
+            $this -> planes   = $this -> fleets   -> all ();
+            $this -> data = array();
 
-            $this -> data = array(
-                'a1' => array(
+            $index = 0;
+
+            foreach ($this -> planes as $key => $record) {
+                array_push ($this-> data, array(
                     'departureLocation' => $this -> airports['base'],
                     'destinationLocation' => $this -> airports['dest1'],
                     'departureTime' => '0800',
-                    'arrivalTime' => '1100'
-                ),
-                'a2' => array(
-                    'departureLocation' => $this -> airports['dest1'],
-                    'destinationLocation' => $this -> airports['dest2'],
-                    'departureTime' => '1130',
-                    'arrivalTime' => '1430'
-                ),
-                'a3'  => array(
+                    'arrivalTime' => '1100',
+                    'aircraftCode' => $key,
+                ));
+
+                array_push ($this-> data, array(
+                        'departureLocation' => $this -> airports['dest1'],
+                        'destinationLocation' => $this -> airports['dest2'],
+                        'departureTime' => '1130',
+                        'arrivalTime' => '1430',
+                        'aircraftCode' => $key,
+                ));
+
+                array_push ($this-> data, array(
                     'departureLocation' => $this -> airports['dest2'],
                     'destinationLocation' => $this -> airports['base'],
                     'departureTime' => '1500',
-                    'arrivalTime' => '1930'
-                ),
-                'a4' => array(
+                    'arrivalTime' => '1930',
+                    'aircraftCode' => $key,
+                ));
+
+                array_push ($this-> data, array(
                     'departureLocation' => $this -> airports['base'],
                     'destinationLocation' => $this -> airports['dest3'],
                     'departureTime' => '0900',
-                    'arrivalTime' => '1200'
-                ),
-                'a5' => array(
+                    'arrivalTime' => '1200',
+                    'aircraftCode' => $key,
+                ));
+
+                array_push ($this-> data, array(
                     'departureLocation' => $this -> airports['dest3'],
                     'destinationLocation' => $this -> airports['base'],
                     'departureTime' => '1230',
-                    'arrivalTime' => '1530'
-                ),
-            );
+                    'arrivalTime' => '1530',
+                    'aircraftCode' => $key,
+                ));
+
+            }
+
+            $arr = array ();
+            foreach ($this -> data as $key => $record)
+                $arr["a{$key}"] = $record;
+
+            $this -> data = $arr;
         }
 
         // returns airports for the flights
