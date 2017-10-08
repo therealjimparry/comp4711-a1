@@ -17,49 +17,56 @@
             $this -> planes   = $this -> fleets   -> all ();
             $this -> data = array();
 
-            foreach ($this -> planes as $key => $record) {
+            $index = 0;
 
-                $flight = array(
-                    'a1' => array(
-                        'departureLocation' => $this -> airports['base'],
-                        'destinationLocation' => $this -> airports['dest1'],
-                        'departureTime' => '0800',
-                        'arrivalTime' => '1100',
-                        'aircraftCode' => $key,
-                    ),
-                    'a2' => array(
+            foreach ($this -> planes as $key => $record) {
+                array_push ($this-> data, array(
+                    'departureLocation' => $this -> airports['base'],
+                    'destinationLocation' => $this -> airports['dest1'],
+                    'departureTime' => '0800',
+                    'arrivalTime' => '1100',
+                    'aircraftCode' => $key,
+                ));
+
+                array_push ($this-> data, array(
                         'departureLocation' => $this -> airports['dest1'],
                         'destinationLocation' => $this -> airports['dest2'],
                         'departureTime' => '1130',
                         'arrivalTime' => '1430',
                         'aircraftCode' => $key,
-                    ),
-                    'a3'  => array(
-                        'departureLocation' => $this -> airports['dest2'],
-                        'destinationLocation' => $this -> airports['base'],
-                        'departureTime' => '1500',
-                        'arrivalTime' => '1930',
-                        'aircraftCode' => $key,
-                    ),
-                    'a4' => array(
-                        'departureLocation' => $this -> airports['base'],
-                        'destinationLocation' => $this -> airports['dest3'],
-                        'departureTime' => '0900',
-                        'arrivalTime' => '1200',
-                        'aircraftCode' => $key,
-                    ),
-                    'a5' => array(
-                        'departureLocation' => $this -> airports['dest3'],
-                        'destinationLocation' => $this -> airports['base'],
-                        'departureTime' => '1230',
-                        'arrivalTime' => '1530',
-                        'aircraftCode' => $key,
-                    ),
-                );
+                ));
 
-                array_push ($this -> data, $flight);
+                array_push ($this-> data, array(
+                    'departureLocation' => $this -> airports['dest2'],
+                    'destinationLocation' => $this -> airports['base'],
+                    'departureTime' => '1500',
+                    'arrivalTime' => '1930',
+                    'aircraftCode' => $key,
+                ));
+
+                array_push ($this-> data, array(
+                    'departureLocation' => $this -> airports['base'],
+                    'destinationLocation' => $this -> airports['dest3'],
+                    'departureTime' => '0900',
+                    'arrivalTime' => '1200',
+                    'aircraftCode' => $key,
+                ));
+
+                array_push ($this-> data, array(
+                    'departureLocation' => $this -> airports['dest3'],
+                    'destinationLocation' => $this -> airports['base'],
+                    'departureTime' => '1230',
+                    'arrivalTime' => '1530',
+                    'aircraftCode' => $key,
+                ));
 
             }
+
+            $arr = array ();
+            foreach ($this -> data as $key => $record)
+                $arr["a{$key}"] = $record;
+
+            $this -> data = $arr;
         }
 
         // returns airports for the flights

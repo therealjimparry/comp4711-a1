@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [Unreleased] - YR 
+### Changed 
+- Modified flight model data structure heavily such that the flight number was unique and could be potentially used in
+  future.
+- Updated flights view such that it works now
+
+## [Unreleased] - YR 
+### Added 
+- Plane view to showcase specfic information about a plane
 
 ## [Unreleased] - YR 
 ### Changed

@@ -10,7 +10,7 @@
         function __construct () {
             parent::__construct();
 
-            $temp = json_decode ($this -> planes -> all (), true);
+            $temp = $this -> planes -> all ();
             
             $ap = -1;
             
