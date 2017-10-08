@@ -14,7 +14,9 @@ class Home extends Application
 	public function index()
 	{
         $this->data['pagebody']   = 'welcome_message';
-        $this->data['airports']    = $this -> flights -> flight_airports();
+        $this -> data['airports'] = array (
+            "airport" => $this -> flights -> flight_airports ()
+        );
         $this->data['no_flights'] = $this -> flights  -> count_flights();
         $this->data['no_planes']  = $this -> fleets   -> count_planes(); 
 		$this->render();
