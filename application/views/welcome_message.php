@@ -10,6 +10,7 @@
     <h2>Number of flights: {no_flights}</h2>
 
     <div>
+
         <h2> List of airports:
             {airports}
             <li>{base}</li>
@@ -18,5 +19,9 @@
             <li>{dest3}</li>
             {/airports}
         </h2>
+        {all_flights}
+            {key}
+            {departureLocation}
+       {/all_flights}
     </div>
 </div>
