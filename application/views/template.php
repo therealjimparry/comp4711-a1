@@ -8,6 +8,12 @@
         <link rel="stylesheet" type="text/css" href="/assets/css/default.css"/>
 	</head>
 	<body>
+        <div class="navbar">
+            <div class="navbar-inner">
+                {menubar}
+            </div>
+        </div>
+
         <div id="container">
 			{content}
 			<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds. 
