@@ -1,8 +1,7 @@
 <div class="row">
     {fleets}
     <div class="span4">
-        <a href="show/{id}">{id}</a>
+        <a href="fleet/{key}">{key} - {id}</a>
     </div>
-    {key}
     {/fleets}
 </div>
