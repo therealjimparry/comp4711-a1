@@ -14,7 +14,7 @@ class Flight extends Application
 	public function index()
 	{
 		$this->data['pagebody'] = 'welcome_message';
-		$this->data['fleets']   = $this-> flights ->all();
+		$this->data['flights']  = $this -> flights -> all();
 		$this->render(); 
 	}
 
