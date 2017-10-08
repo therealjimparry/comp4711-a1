@@ -1,7 +1,7 @@
 <div class="row">
     <div class="span4">
-       {flight}
-        {departureLocation}
-       {/flight}
+       {all_flights}
+            {departureLocation}
+       {/all_flights}
     </div>
 </div>
