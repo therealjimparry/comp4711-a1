@@ -17,7 +17,7 @@
             $this -> airports['baseC'] = "Bella Coola Airport";
             $this -> airports['dest1C'] = "Alert Bay Airport";
             $this -> airports['dest2C'] = "Port Hardy Airport";
-            $this -> airports['dest3C'] = "Bella Coola Airport";
+            $this -> airports['dest3C'] = "Port McNeill Airport";
             $this -> planes   = $this -> fleets   -> all ();
             $this -> data = array();
 
