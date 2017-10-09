@@ -22,6 +22,7 @@
                 $record['key'] = "a{$key}";
                 $this->data["a{$key}"] = $record;
             }
+            $this->data['baseC'] = 'Bella Coola';
         }
 
         // Returns all airlines
