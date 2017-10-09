@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased] - SC
 ### Changed
+- Flight view now uses community names
+
+## [Unreleased] - SC
+### Changed
 - Tabulated flight view with relevant tooltips
 
 ## [Unreleased] - YR 

@@ -18,11 +18,13 @@
             $this -> data = array();
 
             $index = 0;
-
+            
             foreach ($this -> planes as $key => $record) {
                 array_push ($this-> data, array(
                     'departureLocation' => $this -> airports['base'],
                     'destinationLocation' => $this -> airports['dest1'],
+                    'departureLocationC' => "Bella Coola",
+                    'destinationLocationC' => "Alert Bay",
                     'departureTime' => '0800',
                     'arrivalTime' => '1100',
                     'aircraftCode' => $key,
@@ -31,6 +33,8 @@
                 array_push ($this-> data, array(
                         'departureLocation' => $this -> airports['dest1'],
                         'destinationLocation' => $this -> airports['dest2'],
+                        'departureLocationC' => "Alert Bay",
+                        'destinationLocationC' => "Port Hardy",
                         'departureTime' => '1130',
                         'arrivalTime' => '1430',
                         'aircraftCode' => $key,
@@ -39,6 +43,8 @@
                 array_push ($this-> data, array(
                     'departureLocation' => $this -> airports['dest2'],
                     'destinationLocation' => $this -> airports['base'],
+                    'departureLocationC' => "Port Hardy",
+                    'destinationLocationC' => "Bella Coola",
                     'departureTime' => '1500',
                     'arrivalTime' => '1930',
                     'aircraftCode' => $key,
@@ -47,6 +53,8 @@
                 array_push ($this-> data, array(
                     'departureLocation' => $this -> airports['base'],
                     'destinationLocation' => $this -> airports['dest3'],
+                    'departureLocationC' => "Bella Coola",
+                    'destinationLocationC' => "Port McNeill",
                     'departureTime' => '0900',
                     'arrivalTime' => '1200',
                     'aircraftCode' => $key,
@@ -55,6 +63,8 @@
                 array_push ($this-> data, array(
                     'departureLocation' => $this -> airports['dest3'],
                     'destinationLocation' => $this -> airports['base'],
+                    'departureLocationC' => "Port McNeill",
+                    'destinationLocationC' => "Bella Coola",
                     'departureTime' => '1230',
                     'arrivalTime' => '1530',
                     'aircraftCode' => $key,
