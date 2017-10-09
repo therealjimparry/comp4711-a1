@@ -1,14 +1,19 @@
-<h1>Welcome to CodeIgniter!</h1>
-
+<h1>Welcome to Albatros Airlines!</h1>
 <div id="body">
-	<p>The page you are looking at is being generated dynamically by CodeIgniter.</p>
+    <div style="text-align: center; list-style-type: none;">
+    <h2>Number of planes: {no_planes}</h2>
+    <h2>Number of flights: {no_flights}</h2>
 
-	<p>If you would like to edit this page you'll find it located at:</p>
-	<code>application/views/welcome_message.php</code>
-
-	<p>The corresponding controller for this page is found at:</p>
-	<code>application/controllers/Welcome.php</code>
-
-	<p>If you are exploring CodeIgniter for the very first time, you should 
-		start by reading the <a href="http://www.codeigniter.com/user_guide/">User Guide</a>.</p>
+    <div>
+        <h2> List of airports: </h2>
+            {airports}
+                <li>Base Airport: {baseC}</li>
+                <h3>Destinations</h3>
+                <ol>
+                    <li>{dest1C}</li>
+                    <li>{dest2C}</li>
+                    <li>{dest3C}</li>
+                </ol>
+            {/airports}
+    </div>
 </div>
