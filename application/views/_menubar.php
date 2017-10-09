@@ -1,4 +1,4 @@
-<ul class="nav navbar-nav">
+<ul class="nav">
     {menudata}
     <li><a href="{link}">{name}</a></li>
     {/menudata}
