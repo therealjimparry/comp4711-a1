@@ -15,8 +15,8 @@
             "Flight: {key}, Aircraft: {aircraftCode}, Departing {departureLocation} at {departureTime}, Destination: {destinationLocation} at {arrivalTime}">
             <td>{key}</td>
             <td>{aircraftCode}</td>
-            <td>{departureLocation}</td>
-            <td>{destinationLocation}</td>
+            <td>{departureLocationC}</td>
+            <td>{destinationLocationC}</td>
         </tr>
         <br>
         {/all_flights}
