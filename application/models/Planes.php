@@ -1,6 +1,7 @@
 <?php
+
     /*
-        Model for plane.
+        Model for planes.
         Gets all plane data from json from server
     */
     class Planes extends CI_Model {
@@ -17,11 +18,31 @@
             $result = curl_exec($ch);
             curl_close($ch);
             $this -> data = json_decode($result, true);
+            $this -> convert_to_planes_array ();
+        }
+
+        private function create_plane_from_obj ($object) {
+            return new Plane ($object.id, $object.manufacturer, $object.model, $object.price, $object.seats, $object.reach, $object.cruise, $object.takeoff, $object.hourly);
+        }
+
+        private function create_plane_from_arr ($arr) {
+            return new Plane ($arr["id"], $arr["manufacturer"], $arr["model"], $arr["price"], $arr["seats"], $arr["reach"], $arr["cruise"], $arr["takeoff"], $arr["hourly"]);
+        }
+
+        private function create_plane ($id, $manufacturer, $model, $price, $seats, $reach, $cruise, $takeoff, $hourly) {
+            return new Plane ($id, $manufacturer, $model, $price, $seats, $reach, $cruise, $takeoff, $hourly);
+        }
+
+        // Convert data recieved in array format from server to an array containing plane objects
+        private function convert_to_planes_array () {
+            $records = array();
+            foreach ($this -> data as $key => $record)
+                array_push ($records, $this->create_plane_from_arr ($record));
+            $this -> data = $records;
         }
 
         // Returns all planes from server
-        public function all() 
-        {
+        public function all() {
             return $this -> data;
         }
 
