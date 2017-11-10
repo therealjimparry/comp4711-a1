@@ -18,9 +18,9 @@
             // assigns a plane to the fleet if it's name matches the selected planes
             foreach ($temp as $key => $record) {
                 $check = false;
-                if (!empty ($record["id"])) {
+                if (trim ($record -> id) != "") {
                     $check = true;
-                    switch ($record["id"]) {
+                    switch ($record -> id) {
                         case "avanti"  :
                             break;
                         case "caravan" :
@@ -30,7 +30,7 @@
                     }
                     if ($check) {
                         ++$ap;
-                        $record["key"] = "a{$ap}";
+                        $record -> key = "a{$ap}";
                         $this -> data["a$ap"] = $record;
                     }
                 }
