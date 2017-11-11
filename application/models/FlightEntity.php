@@ -5,7 +5,7 @@
     /*
         Model for flight
      */
-    class FlightModel extends Entity {
+    class FlightEntity extends Entity {
 
         protected $id;
         protected $departureLocation;
@@ -26,10 +26,6 @@
             $this -> departureTime = $departureTime;
             $this -> arrivalTime = $arrivalTime;
             $this -> aircraftCode = $aircraftCode;
-        }
-
-        public function setId ($value) {
-            $this -> id = $value;
         }
 
         public function setDepartureLocation($value) {
@@ -60,10 +56,6 @@
             $this -> aircraftCode = $value;
         }
 
-        public function getId () {
-            return $this -> id;
-        }
-
         public function getDepartureLocation() {
             return $this -> departureLocation;
         }
@@ -90,6 +82,14 @@
 
         public function getAircraftCode () {
             return $this -> aircraftCode;
+        }
+
+        public static function create_flight_from_obj ($object) {
+            return new FlightEntity ($object.id, $object.departureLocation, $object.destinationLocation, $object.departureLocationC, $object.destinationLocationC, $object.departureTime, $object.arrivalTime, $object.aircraftCode);
+        }
+
+        public static function create_flight_from_arr ($arr) {
+            return new FlightEntity ($arr["id"], $arr["departureLocation"], $arr["destinationLocation"], $arr["departureLocationC"], $arr["destinationLocationC"], $arr["departureTime"], $arr["arrivalTime"], $arr["aircraftCode"]);
         }
        
     }
