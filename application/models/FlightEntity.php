@@ -7,7 +7,7 @@
      */
     class FlightEntity extends Entity {
 
-        protected $id;
+        protected $uniqueid;
         protected $departureLocation;
         protected $destinationLocation;
         protected $departureLocationC;
@@ -16,9 +16,9 @@
         protected $arrivalTime;
         protected $aircraftCode;
 
-        function __construct ($id = "", $departureLocation = "", $destinationLocation = "", $departureLocationC = "", $destinationLocationC = "", $departureTime = "", $arrivalTime = "", $aircraftCode = "") {
+        function __construct ($uniqueid = "", $departureLocation = "", $destinationLocation = "", $departureLocationC = "", $destinationLocationC = "", $departureTime = "", $arrivalTime = "", $aircraftCode = "") {
             parent::__construct();
-            $this -> id = $id;
+            $this -> uniqueid = $uniqueid;
             $this -> departureLocation = $departureLocation;
             $this -> destinationLocation = $destinationLocation;
             $this -> departureLocationC = $departureLocationC;
@@ -89,7 +89,7 @@
         }
 
         public static function create_flight_from_arr ($arr) {
-            return new FlightEntity ($arr["id"], $arr["departureLocation"], $arr["destinationLocation"], $arr["departureLocationC"], $arr["destinationLocationC"], $arr["departureTime"], $arr["arrivalTime"], $arr["aircraftCode"]);
+            return new FlightEntity ($arr["uniqueid"], $arr["departureLocation"], $arr["destinationLocation"], $arr["departureLocationC"], $arr["destinationLocationC"], $arr["departureTime"], $arr["arrivalTime"], $arr["aircraftCode"]);
         }
        
     }
