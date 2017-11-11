@@ -3,9 +3,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
+## [Unreleased] - 2017-11-10 - YR
+### Added
+- Finished all basic models implementation, ready for use for CSV Model implementation
+
+### Changed
+- Models named changed to NameModel.php
+
 ## [Unreleased] - 2017-11-09 - YR
 ### Added
-- Added Entity class ti cire
+- Added Entity class to core
 - Magic methods added and implemented in Plane from Entity (set and get)
 - Methdos to create a plane implemented in planes
 - Planes model now converts array from server to plane object array

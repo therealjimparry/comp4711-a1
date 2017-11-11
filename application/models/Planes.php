@@ -30,7 +30,7 @@
         }
 
         private function create_plane ($id, $manufacturer, $model, $price, $seats, $reach, $cruise, $takeoff, $hourly) {
-            return new Plane ($id, $manufacturer, $model, $price, $seats, $reach, $cruise, $takeoff, $hourly);
+            return new PlaneModel ($id, $manufacturer, $model, $price, $seats, $reach, $cruise, $takeoff, $hourly);
         }
 
         // Convert data recieved in array format from server to an array containing plane objects

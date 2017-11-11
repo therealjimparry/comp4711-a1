@@ -5,7 +5,7 @@
     /*
         Model for plane
      */
-    class Plane extends Entity {
+    class PlaneModel extends Entity {
 
         protected $id;
         protected $manufacturer;

@@ -5,7 +5,7 @@
     /*
         Model for airport
      */
-    class Airport extends Entity {
+    class AirportModel extends Entity {
 
         protected $id;
         protected $community;

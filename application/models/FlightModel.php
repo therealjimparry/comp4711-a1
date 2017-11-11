@@ -5,7 +5,7 @@
     /*
         Model for flight
      */
-    class Flight extends Entity {
+    class FlightModel extends Entity {
 
         protected $id;
         protected $departureLocation;

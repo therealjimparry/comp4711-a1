@@ -36,7 +36,7 @@
         }
 
         private function create_airport ($id, $community, $airport, $region, $coordinates, $runway, $airline) {
-            return new Airport ($id, $community, $airport, $region, $coordinates, $runway, $airline);
+            return new AirportModel ($id, $community, $airport, $region, $coordinates, $runway, $airline);
         }
 
         // Convert data recieved in array format from server to an array containing plane objects
