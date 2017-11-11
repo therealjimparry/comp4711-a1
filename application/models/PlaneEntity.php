@@ -5,7 +5,7 @@
     /*
         Model for plane
      */
-    class PlaneModel extends Entity {
+    class PlaneEntity extends Entity {
 
         protected $id;
         protected $manufacturer;
@@ -100,6 +100,14 @@
 
         public function getHourly () {
             return $this -> hourly;
+        }
+
+        public static function create_plane_from_obj ($object) {
+            return new PlaneEntity ($object.id, $object.manufacturer, $object.model, $object.price, $object.seats, $object.reach, $object.cruise, $object.takeoff, $object.hourly);
+        }
+
+        public static function create_plane_from_arr ($arr) {
+            return new PlaneEntity ($arr["id"], $arr["manufacturer"], $arr["model"], $arr["price"], $arr["seats"], $arr["reach"], $arr["cruise"], $arr["takeoff"], $arr["hourly"]);
         }
 
     }

@@ -5,7 +5,7 @@
     /*
         Model for plane
      */
-    class AirlineModel extends Entity {
+    class AirlineEntity extends Entity {
 
         protected $id;
         protected $base;
@@ -60,6 +60,14 @@
 
         public function getDest3 () {
             return $this -> seats;
+        }
+
+        public static function create_airline_from_obj ($object) {
+            return new AirlineEntity ($object.id, $object.base, $object.dest1, $object.dest2, $object.dest3);
+        }
+
+        public static function create_airline_from_arr ($arr) {
+            return new AirlineEntity ($arr["id"], $arr["base"], $arr["dest1"], $arr["dest2"], $arr["dest3"]);
         }
 
     }
