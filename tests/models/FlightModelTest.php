@@ -21,7 +21,6 @@ class FlightModelTest extends PHPUnit_Framework_TestCase {
                 $this -> albatros = $air;
             }
         }
-        print_r($this -> albatros);
         curl_close($curl);
     }
     

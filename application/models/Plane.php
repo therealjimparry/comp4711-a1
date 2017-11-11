@@ -7,6 +7,7 @@
      */
     class Plane extends Entity {
 
+        protected $uniqueId;
         protected $id;
         protected $manufacturer;
         protected $model;
@@ -17,7 +18,8 @@
         protected $takeoff;
         protected $hourly;
 
-        function __construct ($id = "null", $manufacturer = "null", $model = "null", $price = "null", $seats = "null", $reach = "null", $cruise = "null", $takeoff = "null", $hourly = "null") {
+        function __construct ($uniqueId = "null", $id = "null", $manufacturer = "null", $model = "null", $price = "null", $seats = "null", $reach = "null", $cruise = "null", $takeoff = "null", $hourly = "null") {
+            $this -> uniqueId = $uniqueId;
             $this -> id = $id;
             $this -> manufacturer = $manufacturer;
             $this -> model = $model;
@@ -29,6 +31,13 @@
             $this -> hourly = $hourly;
         }
 
+        public function setUniqueId($value) {
+            $regex = "/^a(\d){1,}$/";
+            if (is_string($value) && preg_match($regex, $value) === 1) {
+                $this -> uniqueId = $value;
+            }
+        }
+        
         public function setId ($value) {
             $this -> id = $value;
         }
@@ -65,6 +74,10 @@
             $this -> hourly = $value;
         }
 
+        public function getUniqueId() {
+            return $this -> uniqueId;
+        }
+        
         public function getId () {
             return $this -> id;
         }
