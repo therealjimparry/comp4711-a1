@@ -4,6 +4,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 ## [Unreleased] - 2017-11-10 - YR
+### Changed
+- Changed flightentity id to uniqueid
+
+## [Unreleased] - 2017-11-10 - YR
+### Added
+- Added WackyAPI file to reduce code redundancy, contains ways of accessing server api
+- Added JSONHelper file to reduce code redundancy, uses curl
+
+### Changed
+- Moved creating entity object functions to relevant entites as static functions to create themselves
+
+## [Unreleased] - 2017-11-10 - YR
 ### Added
 - Finished all basic models implementation, ready for use for CSV Model implementation
 

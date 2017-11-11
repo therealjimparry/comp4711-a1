@@ -5,7 +5,7 @@
     /*
         Model for fleet
      */
-    class FleetModel extends Entity {
+    class FleetEntity extends Entity {
 
         protected $planes;
 

@@ -5,7 +5,7 @@
     /*
         Model for airport
      */
-    class AirportModel extends Entity {
+    class AirportEntity extends Entity {
 
         protected $id;
         protected $community;
@@ -76,6 +76,14 @@
 
         public function getAirline () {
             return $this -> airline;
+        }
+
+        public static function create_airport_from_obj ($object) {
+            return new AirportEntity ($arr.id, $arr.community, $arr.airport, $arr.region, $arr.coordinates, $arr.runway, $arr.airline);
+        }
+
+        public static function create_airport_from_arr ($arr) {
+            return new AirportEntity ($arr["id"], $arr["community"], $arr["airport"], $arr["region"], $arr["coordinates"], $arr["runway"], $arr["airline"]);
         }
 
     }
