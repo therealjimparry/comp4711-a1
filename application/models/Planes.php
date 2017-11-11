@@ -22,11 +22,11 @@
         }
 
         private function create_plane_from_obj ($object) {
-            return new Plane ($object.id, $object.manufacturer, $object.model, $object.price, $object.seats, $object.reach, $object.cruise, $object.takeoff, $object.hourly);
+            return $this -> create_plane ($object.id, $object.manufacturer, $object.model, $object.price, $object.seats, $object.reach, $object.cruise, $object.takeoff, $object.hourly);
         }
 
         private function create_plane_from_arr ($arr) {
-            return new Plane ($arr["id"], $arr["manufacturer"], $arr["model"], $arr["price"], $arr["seats"], $arr["reach"], $arr["cruise"], $arr["takeoff"], $arr["hourly"]);
+            return $this -> create_plane ($arr["id"], $arr["manufacturer"], $arr["model"], $arr["price"], $arr["seats"], $arr["reach"], $arr["cruise"], $arr["takeoff"], $arr["hourly"]);
         }
 
         private function create_plane ($id, $manufacturer, $model, $price, $seats, $reach, $cruise, $takeoff, $hourly) {
