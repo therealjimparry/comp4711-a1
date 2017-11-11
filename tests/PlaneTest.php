@@ -11,7 +11,7 @@ class PlaneTest extends PHPUnit_Framework_TestCase {
     public function setUp() {
         // Load CI instance normally
         $this -> CI = &get_instance();
-        $this -> plane = new Plane;
+        $this -> plane = new PlaneEntity;
         $this -> plane -> uniqueId = "a123";
         $this -> plane -> id = "avanti";
     }
@@ -39,8 +39,12 @@ class PlaneTest extends PHPUnit_Framework_TestCase {
         $this -> plane -> uniqueId = "aaaa12";
         $this ->assertEquals('a123', $this -> plane -> uniqueId);
     }
-    public function testPlaneNoTrailingNumber() {
+    public function testPlaneUniqueIdNoTrailingNumber() {
         $this -> plane -> uniqueId = "a";
+        $this -> assertEquals('a123', $this -> plane -> uniqueId);    
+    }
+    public function testPlaneUniqueIdUnderscoreMiddle() {
+        $this -> plane -> uniqueId = "a_1";
         $this -> assertEquals('a123', $this -> plane -> uniqueId);    
     }
 }
