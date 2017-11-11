@@ -9,6 +9,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - data folder for project data
 - flights.csv and fleet.csv data
 
+## [Unreleased] - 2017-11-10 - SC
+### Added
+- Unit tests for Plane entity
+- function in WackyAPI to get albatros airline
+
 ## [Unreleased] - 2017-11-10 - YR
 ### Changed
 - Changed flightentity to contain airport objects
