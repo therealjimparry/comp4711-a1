@@ -20,7 +20,13 @@
             return JSON_Helper::get_json_as_assoc (WackyAPI::$airports);
         }
 
-
+        public static function getAlbatros() {
+            foreach (WackyAPI::getAirlines() as $airline) {
+                if ($airline['id'] === 'albatros') {
+                    return $airline;
+                }
+            }
+        }
 
     }
 

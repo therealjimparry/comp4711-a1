@@ -7,6 +7,7 @@
      */
     class PlaneEntity extends Entity {
 
+        protected $uniqueId;
         protected $id;
         protected $manufacturer;
         protected $model;
@@ -30,6 +31,12 @@
             $this -> hourly = $hourly;
         }
 
+        public function setUniqueId($value) {
+            if (is_string($value) && preg_match("/^a(\d)+/", $value) === 1) {
+                $this -> uniqueId = $value;
+            }
+        }
+        
         public function setId ($value) {
             $this -> id = $value;
         }
@@ -66,6 +73,10 @@
             $this -> hourly = $value;
         }
 
+        public function getUniqueId() {
+            return $this -> uniqueId;
+        }
+        
         public function getId () {
             return $this -> id;
         }
