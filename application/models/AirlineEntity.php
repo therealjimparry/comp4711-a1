@@ -13,7 +13,7 @@
         protected $dest2;
         protected $dest3;
 
-        function __construct ($id = "", $base = "", $dest1 = "", $dest2 = "", $dest3 = "") {
+        function __construct ($id = null, $base = null, $dest1 = null, $dest2 = null, $dest3 = null) {
             parent::__construct();
             $this -> id = $id;
             $this -> base = $base;

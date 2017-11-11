@@ -5,7 +5,7 @@
     class WackyAPI {
 
         private static $airplanes = 'http://wacky.jlparry.com/info/airplanes';
-        private static $airlines  = 'https://wacky.jlparry.com/info/airports';
+        private static $airlines  = 'https://wacky.jlparry.com/info/airlines';
         private static $airports  = 'https://wacky.jlparry.com/info/airports';
 
         public static function getAirplanes () {

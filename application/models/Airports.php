@@ -32,7 +32,7 @@
             $this -> data = $records;
         }
 
-        // Returns a specific airline
+        // Returns a specific airport
         public function get_airport($which) {
             foreach ($this -> data as $value)
             if ($value["id"] == $which)
