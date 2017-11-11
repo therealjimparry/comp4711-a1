@@ -7,21 +7,9 @@ if (! class_exists('PHPUnit_Framework_TestCase')) {
 class FlightModelTest extends PHPUnit_Framework_TestCase {
     private $CI;
     private $flights;
-    private $airlines;
-    private $albatros;
     
     public function __construct() {
         parent::__construct();
-        $curl = curl_init();
-        curl_setopt($curl, CURLOPT_URL, "http://wacky.jlparry.com/info/airlines");
-        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-        $this -> airlines = json_decode(curl_exec($curl), true);
-        foreach ($this -> airlines as $air) {
-            if ($air['id'] === 'albatros') {
-                $this -> albatros = $air;
-            }
-        }
-        curl_close($curl);
     }
     
     public function setUp() {
@@ -30,11 +18,29 @@ class FlightModelTest extends PHPUnit_Framework_TestCase {
         $this -> flights = $this -> CI -> data['all_flights'];
     }
     
-    public function testTrivial() {
-        $this->assertEquals('bar', 'bar');
+    public function testDestinationAirportsValid() {
+        $albatros = WackyAPI::getAlbatros();
+        $this->assertEquals("albatros", $albatros['id']);
+        foreach ($this -> flights as $flight) {
+            $this -> assertContains($flight->destinationAirport, [$albatros['base'], $albatros['dest1'], $albatros['dest2'], $albatros['dest3']]);
+        }
     }
-    
-    // public function testDepartureLocationsValid() {
-        
+    public function testDepartureAirportsValid() {
+        $albatros = WackyAPI::getAlbatros();
+        $this->assertEquals("albatros", $albatros['id']);
+        foreach ($this -> flights as $flight) {
+            $this -> assertContains($flight->departureAirport, [$albatros['base'], $albatros['dest1'], $albatros['dest2'], $albatros['dest3']]);
+        }
+    }
+    // public function testPlanesExist() {
+        // print_r($this->CI->data);
+        // foreach ($this -> flights as $flight) {
+            // $this -> assertContains($flight->departureAirport, [$albatros['base'], $albatros['dest1'], $albatros['dest2'], $albatros['dest3']]);
+        // }
+    // }
+    // public function testArrivalTimesBeforeCurfew() {
+        // foreach ($this -> flights as $flight) {
+            // $this -> assertLessThanOrEqual(2200, $flight->arrivalTime);
+        // }
     // }
 }
