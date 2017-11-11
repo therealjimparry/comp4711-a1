@@ -59,7 +59,7 @@
         }
 
         public function getDest3 () {
-            return $this -> seats;
+            return $this -> dest3;
         }
 
         public static function create_airline_from_obj ($object) {
