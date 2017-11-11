@@ -5,7 +5,7 @@
     /*
         Model for plane
      */
-    class Plane extends Entity {
+    class PlaneModel extends Entity {
 
         protected $id;
         protected $manufacturer;
@@ -17,7 +17,8 @@
         protected $takeoff;
         protected $hourly;
 
-        function __construct ($id = "null", $manufacturer = "null", $model = "null", $price = "null", $seats = "null", $reach = "null", $cruise = "null", $takeoff = "null", $hourly = "null") {
+        function __construct ($id = "", $manufacturer = "", $model = "", $price = "", $seats = "", $reach = "", $cruise = "", $takeoff = "", $hourly = "") {
+            parent::__construct();
             $this -> id = $id;
             $this -> manufacturer = $manufacturer;
             $this -> model = $model;

@@ -13,11 +13,11 @@
         function __construct () {
             parent::__construct();
 
-            $this -> airports = $this -> airlines -> get('albatros');
-            $this -> airports['baseC'] = "Bella Coola Airport";
-            $this -> airports['dest1C'] = "Alert Bay Airport";
-            $this -> airports['dest2C'] = "Port Hardy Airport";
-            $this -> airports['dest3C'] = "Port McNeill Airport";
+            $this -> airports = $this -> airlines -> get_airline('albatros');
+            $this -> airports -> baseC = "Bella Coola Airport";
+            $this -> airports -> dest1C = "Alert Bay Airport";
+            $this -> airports -> dest2C = "Port Hardy Airport";
+            $this -> airports -> dest3C = "Port McNeill Airport";
             $this -> planes   = $this -> fleets   -> all ();
             $this -> data = array();
 
@@ -25,8 +25,8 @@
             
             foreach ($this -> planes as $key => $record) {
                 array_push ($this-> data, array(
-                    'departureLocation' => $this -> airports['base'],
-                    'destinationLocation' => $this -> airports['dest1'],
+                    'departureLocation' => $this -> airports -> base,
+                    'destinationLocation' => $this -> airports -> dest1,
                     'departureLocationC' => "Bella Coola",
                     'destinationLocationC' => "Alert Bay",
                     'departureTime' => '0800',
@@ -35,8 +35,8 @@
                 ));
 
                 array_push ($this-> data, array(
-                        'departureLocation' => $this -> airports['dest1'],
-                        'destinationLocation' => $this -> airports['dest2'],
+                        'departureLocation' => $this -> airports -> dest1,
+                        'destinationLocation' => $this -> airports -> dest2,
                         'departureLocationC' => "Alert Bay",
                         'destinationLocationC' => "Port Hardy",
                         'departureTime' => '1130',
@@ -45,8 +45,8 @@
                 ));
 
                 array_push ($this-> data, array(
-                    'departureLocation' => $this -> airports['dest2'],
-                    'destinationLocation' => $this -> airports['base'],
+                    'departureLocation' => $this -> airports -> dest2,
+                    'destinationLocation' => $this -> airports -> base,
                     'departureLocationC' => "Port Hardy",
                     'destinationLocationC' => "Bella Coola",
                     'departureTime' => '1500',
@@ -55,8 +55,8 @@
                 ));
 
                 array_push ($this-> data, array(
-                    'departureLocation' => $this -> airports['base'],
-                    'destinationLocation' => $this -> airports['dest3'],
+                    'departureLocation' => $this -> airports -> base,
+                    'destinationLocation' => $this -> airports -> dest3,
                     'departureLocationC' => "Bella Coola",
                     'destinationLocationC' => "Port McNeill",
                     'departureTime' => '0900',
@@ -65,8 +65,8 @@
                 ));
 
                 array_push ($this-> data, array(
-                    'departureLocation' => $this -> airports['dest3'],
-                    'destinationLocation' => $this -> airports['base'],
+                    'departureLocation' => $this -> airports -> dest3,
+                    'destinationLocation' => $this -> airports -> base,
                     'departureLocationC' => "Port McNeill",
                     'destinationLocationC' => "Bella Coola",
                     'departureTime' => '1230',
