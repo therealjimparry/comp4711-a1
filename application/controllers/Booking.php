@@ -17,10 +17,53 @@ class Booking extends Application {
 		$this->data['pagebody'] = 'search';
         $from = $this->input->post('from');
         $to = $this->input->post('to');
+        // do validation here
         
-        $t = $this->getFlightsByDepartureLocation($from);
-        print_r($t);
+        
+        $this->data['from'] = WackyAPI::getAirport($from)['community'];
+        $this->data['to'] = WackyAPI::getAirport($to)['community'];
+        
+        $booking = array();
+        foreach ($this->getFlightsByDepartureLocation($from) as $f) {
+            array_push($booking, [$f]);
+        }
+        $booking = $this-> addBookings($booking, $to);
+        $booking = $this-> addBookings($booking, $to);
+        $booking = $this-> filterBookings($booking, $to);
+        $this -> data['bookings'] = array();
+        foreach ($booking as $book) {
+            $asdf = [];
+            foreach ($book as $flight) {
+                $f = ['departureCommunity' => $flight -> departureAirport -> community, 'destinationCommunity' => $flight -> destinationAirport -> community];
+                array_push($asdf, $f);
+            }
+            array_push($this -> data['bookings'], array('flights' => $asdf));
+        }
         $this->render();
+    }
+    private function filterBookings($booking, $destId) {
+        $result = array();
+        foreach ($booking as $book) {
+            if ($book[count($book) - 1] -> destinationAirport -> id === $destId) { // already at destination
+                array_push($result, $book);
+            }
+        }
+        return $result;
+    }
+    private function addBookings($booking, $destId) {
+        $result = array();
+        foreach ($booking as $book) {
+            if ($book[count($book) - 1] -> destinationAirport -> id === $destId) { // already at destination
+                array_push($result, $book);
+                continue;
+            }
+            foreach ($this -> getFlightsByDepartureLocation($book[count($book) - 1] -> destinationAirport -> id) as $f) {
+                $t = $book;
+                array_push($t, $f);
+                array_push($result, $t);
+            }
+        }
+        return $result;
     }
     private function getFlightsByDepartureLocation($airportId) {
         $flights = array();

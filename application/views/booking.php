@@ -1,6 +1,6 @@
 <h1>Bookings</h1>
 
-<form action="booking/search/" method="post">
+<form action="/booking/search/" method="post">
 <table>
     <tr>
         <th>Departure Location</th>
