@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased] - 2017-11-11 YR
 ### Added
+- Regions Model
+- RegionEntity
+
+## [Unreleased] - 2017-11-11 YR
+### Added
 - Interface for entities to implement, makes it easier for controller to use entities
 - Class for csv models to extend, makes it easier to controllers to access model items
 

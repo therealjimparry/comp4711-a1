@@ -34,8 +34,8 @@
         // Returns a specific airport
         public function get_airport($which) {
             foreach ($this -> data as $value)
-            if ($value["id"] == $which)
-                return $value;
+                if ($value["id"] == $which)
+                    return $value;
             return null;
         }
 
