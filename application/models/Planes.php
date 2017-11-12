@@ -1,7 +1,5 @@
 <?php
 
-    require_once APPPATH . 'core/WackyAPI.php';
-
     /*
         Model for planes.
         Gets all plane data from json from server
@@ -21,7 +19,7 @@
         private function convert_to_planes_array () {
             $records = array();
             foreach ($this -> data as $key => $record)
-                array_push ($records, PlaneEntity::create_plane_from_arr ($record));
+                array_push ($records, PlanesEntity::create_plane_from_arr ($record));
             $this -> data = $records;
         }
 
@@ -33,8 +31,16 @@
         // Returns a specific airplane
         public function get($which) {
             foreach ($this -> data as $key => $record)
-                if ($record["id"] == $which)
+                if ($record -> id == $which)
                     return $record;
+            return null;
+        }
+
+        // Returns a specific airplane
+        public function get_with_view($which) {
+            foreach ($this -> data as $key => $record)
+                if ($record -> id == $which)
+                    return $record -> getViewArray();
             return null;
         }
 

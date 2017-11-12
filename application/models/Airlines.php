@@ -1,5 +1,4 @@
 <?php
-    require_once APPPATH . 'core/WackyAPI.php';
 
     /*
         Model for airlines.
@@ -38,8 +37,8 @@
         // Returns a specific airline
         public function get_airline($which) {
             foreach ($this -> data as $value)
-            if ($value -> id == $which)
-                return $value;
+                if ($value -> id == $which)
+                    return $value;
             return null;
         }
 

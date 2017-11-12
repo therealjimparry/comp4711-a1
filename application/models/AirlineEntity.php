@@ -1,11 +1,9 @@
 <?php
 
-    require_once APPPATH . 'core/Entity.php';
-
     /*
         Model for plane
      */
-    class AirlineEntity extends Entity {
+    class AirlineEntity extends Entity implements Model_Entity_Controller_Helper {
 
         protected $id;
         protected $base;
@@ -15,11 +13,11 @@
 
         function __construct ($id = null, $base = null, $dest1 = null, $dest2 = null, $dest3 = null) {
             parent::__construct();
-            $this -> id = $id;
-            $this -> base = $base;
-            $this -> dest1 = $dest1;
-            $this -> dest2 = $dest2;
-            $this -> dest3 = $dest3;
+            $this -> setId ($id);
+            $this -> setBase ($base);
+            $this -> setDest1 ($dest1);
+            $this -> setDest2 ($dest2);
+            $this -> setDest3 ($dest3);
         }
 
         public function setId ($value) {
@@ -62,12 +60,34 @@
             return $this -> dest3;
         }
 
+        public function getAirports () {
+            return array ($this -> base, $this -> dest1, $this -> dest2, $this -> dest3);
+        }
+
+        public function getViewArray () {
+            return array ("id" => $this -> id, "base" => $this -> base -> getCommunity (), "dest1" => $this -> dest1 -> getCommunity (), 
+            "dest2" => $this -> dest2 -> getCommunity (), "dest3" => $this -> dest3 -> getCommunity ());
+        }
+
         public static function create_airline_from_obj ($object) {
-            return new AirlineEntity ($object.id, $object.base, $object.dest1, $object.dest2, $object.dest3);
+            return new AirlineEntity ($object -> id, $object -> base, $object -> dest1, $object -> dest2, $object -> dest3);
         }
 
         public static function create_airline_from_arr ($arr) {
             return new AirlineEntity ($arr["id"], $arr["base"], $arr["dest1"], $arr["dest2"], $arr["dest3"]);
+        }
+
+        public static function create_airline_from_obj_with_id ($object) {
+            return new AirlineEntity ($object -> id, AirportEntity::create_airport_from_id($object -> base), AirportEntity::create_airport_from_id($object -> dest1), AirportEntity::create_airport_from_id($object -> dest2), AirportEntity::create_airport_from_id($object -> dest3));
+        }
+
+        public static function create_airline_from_arr_with_id ($arr) {
+            return new AirlineEntity ($arr["id"], AirportEntity::create_airport_from_id($arr["base"]), AirportEntity::create_airport_from_id($arr["dest1"]), AirportEntity::create_airport_from_id($arr["dest2"]), AirportEntity::create_airport_from_id($arr["dest3"]));
+        }
+
+        public static function create_airline_from_arr_with_api_with_id ($value) {
+            $arr = WackyAPI::getAirline ($value);
+            return new AirlineEntity ($arr["id"], AirportEntity::create_airport_from_id($arr["base"]), AirportEntity::create_airport_from_id($arr["dest1"]), AirportEntity::create_airport_from_id($arr["dest2"]), AirportEntity::create_airport_from_id($arr["dest3"]));            
         }
 
     }

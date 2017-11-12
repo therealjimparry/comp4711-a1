@@ -1,4 +1,4 @@
-flightId,planeId,departureLocation,destinationLocation,departureTime,arrivalTime
+uniqueId,planeId,departureLocation,destinationLocation,departureTime,arrivalTime
 a11111,a00111,YBD,YAL,800,1100
 a11112,a00111,YAL,YZT,1130,1430
 a11113,a00111,YZT,YBD,1500,1930

@@ -31,6 +31,10 @@ class Entity extends CI_Model {
         // Otherwise, just return null
         return null;
     }
+
+    public function getViewArray () {
+        // To be overriden
+    }
 }
 
 ?>

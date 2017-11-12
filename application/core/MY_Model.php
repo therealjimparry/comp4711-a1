@@ -478,4 +478,16 @@ class MY_Model2 extends MY_Model {
 
 }
 
+// Include any other persistence implementations, so that they can be used
+// as base models for any in a webapp.
+
+include_once 'JSON_Helper.php'; // JSON Grabbing helper class
+include_once 'WackyAPI.php'; // API to access server
+include_once 'Entity.php'; // Entity class
+include_once 'DataMapper.php'; // Data mapper
+include_once 'Memory_Model.php';	// In-memory only
+include_once 'CSV_Model.php';	// CSV persisted
+include_once 'Model_Entity_Controller_Helper.php'; // Interface for models to implement helper functions for controllers
+include_once 'Model_Controller_Helper.php'; // Class for csv_models to make it easier for controllers
+
 /* End of file */
