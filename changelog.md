@@ -6,6 +6,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased] - 2017-11-11 YR
 ### Added
+- AirlineEntity Function to return an object that is easier to use in the controller
+
+### Changed
+- Home view not working due to changes in design
+- Home view {} to be more friendly and understandable
+
+## [Unreleased] - 2017-11-11 YR
+### Added
 - New function in flights to return simply the airline
 
 ### Changed

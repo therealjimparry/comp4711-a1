@@ -13,12 +13,11 @@ class Home extends Application
 	 */
 	public function index()
 	{
-        $this->data['pagebody']   = 'welcome_message';
+		$this->data['pagebody']   = 'welcome_message';
+		$airline = $this -> flights -> get_flight_airline () -> getViewArray ();
         $this -> data['airports'] = array (
-            "airport" => $this -> flights -> get_flight_airline ()
+			"airport" => $airline
 		);
-
-		// var_dump ($this -> data['airports']);
 
         $this->data['no_flights']   = $this -> flights  -> count_flights();
 		$this->data['no_planes']    = $this -> fleets   -> count_planes(); 

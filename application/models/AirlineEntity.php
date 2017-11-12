@@ -64,6 +64,11 @@
             return array ($this -> base, $this -> dest1, $this -> dest2, $this -> dest3);
         }
 
+        public function getViewArray () {
+            return array ("id" => $this -> id, "base" => $this -> base -> getCommunity (), "dest1" => $this -> dest1 -> getCommunity (), 
+            "dest2" => $this -> dest2 -> getCommunity (), "dest3" => $this -> dest3 -> getCommunity ());
+        }
+
         public static function create_airline_from_obj ($object) {
             return new AirlineEntity ($object -> id, $object -> base, $object -> dest1, $object -> dest2, $object -> dest3);
         }
