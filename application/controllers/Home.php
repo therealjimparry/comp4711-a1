@@ -15,6 +15,7 @@ class Home extends Application
 	{
 		$this->data['pagebody']   = 'welcome_message';
 		$airline = $this -> flights -> get_flight_airline () -> getViewArray ();
+		
         $this -> data['airports'] = array (
 			"airport" => $airline
 		);

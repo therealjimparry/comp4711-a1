@@ -14,7 +14,7 @@ class Fleet extends Application
 	public function index()
 	{
 		$this->data['pagebody'] = 'fleet';
-		$this->data['fleets']   = $this-> fleets -> all();
+		$this->data['fleets']   = $this-> fleets -> viewAll();
 		$this->render(); 
 	}
 
@@ -23,8 +23,9 @@ class Fleet extends Application
 	 */
 	public function show($id) {
 		$this->data['pagebody'] = 'plane';
-		$source = $this -> fleets -> get ($id);
-		$this->data['plane_info'] = array ("values" => (array)$source);
+		$fleet_plane = $this -> fleets -> get ($id) -> getPlane ();
+		$this->data['plane_info'] = array ("values" => $fleet_plane -> getViewArray ());
+		var_dump ($this -> data['plane_info']);
 		$this -> render();
 	}
 

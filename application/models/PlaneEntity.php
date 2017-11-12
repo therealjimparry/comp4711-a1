@@ -6,27 +6,12 @@
     class PlaneEntity extends Entity {
 
         protected $uniqueId;
-        protected $id;
-        protected $manufacturer;
-        protected $model;
-        protected $price;
-        protected $seats;
-        protected $reach;
-        protected $cruise;
-        protected $takeoff;
-        protected $hourly;
+        protected $plane;
 
-        function __construct ($id = null, $manufacturer = null, $model = null, $price = null, $seats = null, $reach = null, $cruise = null, $takeoff = null, $hourly = null) {
+        function __construct ($uniqueId = null, $plane = null) {
             parent::__construct();
-            $this -> id = $id;
-            $this -> manufacturer = $manufacturer;
-            $this -> model = $model;
-            $this -> price = $price;
-            $this -> seats = $seats;
-            $this -> reach = $reach;
-            $this -> cruise = $cruise;
-            $this -> takeoff = $takeoff;
-            $this -> hourly = $hourly;
+            $this -> setUniqueId ($uniqueId);
+            $this -> setPlane ($plane);
         }
 
         public function setUniqueId($value) {
@@ -34,89 +19,41 @@
                 $this -> uniqueId = $value;
             }
         }
+
+        public function setPlane ($value) {
+            $this -> plane = $value;
+        }
         
-        public function setId ($value) {
-            $this -> id = $value;
-        }
-
-        public function setManufacturer ($value) {
-            $this -> manufacturer = $value;
-        }
-
-        public function setModel ($value) {
-            $this -> model = $value;
-        }
-
-        public function setPrice ($value) {
-            $this -> price = $value;
-        }
-
-        public function setSeats ($value) {
-            $this -> seats = $value;
-        }
-
-        public function setReach ($value) {
-            $this -> reach = $value;
-        }
-
-        public function setCruise ($value) {
-            $this -> cruise = $value;
-        }
-
-        public function setTakeoff ($value) {
-            $this -> takeoff = $value;
-        }
-
-        public function setHourly ($value) {
-            $this -> hourly = $value;
-        }
-
         public function getUniqueId() {
             return $this -> uniqueId;
         }
-        
-        public function getId () {
-            return $this -> id;
+
+        public function getPlane () {
+            return $this -> plane;
         }
 
-        public function getManufacturer () {
-            return $this -> manufacturer;
-        }
-
-        public function gettModel () {
-            return $this -> model;
-        }
-
-        public function getPrice () {
-            return $this -> price;
-        }
-
-        public function getSeats () {
-            return $this -> seats;
-        }
-
-        public function getReach () {
-            return $this -> reach;
-        }
-
-        public function getCruise () {
-            return $this -> cruise;
-        }
-
-        public function getTakeoff () {
-            return $this -> takeoff;
-        }
-
-        public function getHourly () {
-            return $this -> hourly;
+        public function getViewArray () {
+            return array_merge (array ("key" => $this -> uniqueId), $this -> plane -> getViewArray ());
         }
 
         public static function create_plane_from_obj ($object) {
-            return new PlaneEntity ($object -> id, $object -> manufacturer, $object -> model, $object -> price, $object -> seats, $object -> reach, $object -> cruise, $object -> takeoff, $object -> hourly);
+            return new PlaneEntity ($object -> uniqueId, PlanesEntity::create_plane_from_obj($object -> id, $object -> manufacturer, $object -> model, $object -> price, $object -> seats, $object -> reach, $object -> cruise, $object -> takeoff, $object -> hourly));
+        }
+
+        public static function create_plane_from_obj_and_id ($uniqueId, $object) {
+            return new PlaneEntity ($uniqueId, PlanesEntity::create_plane_from_obj($object -> id, $object -> manufacturer, $object -> model, $object -> price, $object -> seats, $object -> reach, $object -> cruise, $object -> takeoff, $object -> hourly));
+        }
+
+        public static function create_plane_from_plane_obj_and_id ($uniqueId, $object) {
+            return new PlaneEntity ($uniqueId, $object);
         }
 
         public static function create_plane_from_arr ($arr) {
-            return new PlaneEntity ($arr["id"], $arr["manufacturer"], $arr["model"], $arr["price"], $arr["seats"], $arr["reach"], $arr["cruise"], $arr["takeoff"], $arr["hourly"]);
+            return new PlaneEntity ($arr["uniqueId"], PlanesEntity::create_plane_from_arr($arr["id"], $arr["manufacturer"], $arr["model"], $arr["price"], $arr["seats"], $arr["reach"], $arr["cruise"], $arr["takeoff"], $arr["hourly"]));
+        }
+
+        public static function create_plane_from_arr_and_id ($uniqueId, $arr) {
+            return new PlaneEntity ($uniqueId, PlanesEntity::create_plane_from_arr($arr["id"], $arr["manufacturer"], $arr["model"], $arr["price"], $arr["seats"], $arr["reach"], $arr["cruise"], $arr["takeoff"], $arr["hourly"]));
         }
 
     }

@@ -3,6 +3,15 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
+## [Unreleased] - 2017-11-11 YR
+### Added
+- Static function to wackyapi for getting a single airline
+- Functions to planeentity to better handle fleet planes
+- Fleet contains a plane entity
+- View arrays to more entites
+
+### Changed
+- fleet controller, fixed, could not see object values
 
 ## [Unreleased] - 2017-11-11 YR
 ### Added

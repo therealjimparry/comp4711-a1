@@ -80,14 +80,24 @@
         }
 
         // Returns all the flights in the schedule
+        /*
         function all () {
             return $this -> _data;
+        } */
+
+        function viewAll () {
+            $arr = array ();
+            foreach ($this -> _data as $key => $record) {
+                array_push ($arr, $record -> getViewArray());
+            }
+
+            return $arr;
         }
 
         // Returns a flight from the schedule
-        function get_flight ($which) {
+        /* function get_flight ($which) {
             return !isset ($this -> _data[$which]) ? null : $this -> _data[$which];
-        }
+        } */
 
     }
 ?>

@@ -76,6 +76,10 @@
             return $this -> airline;
         }
 
+        public function getViewArray () {
+            // Not yet implemented as not required in view
+        }
+
         public static function create_airport_from_obj ($object) {
             return new AirportEntity ($arr -> id, $arr -> community, $arr -> airport, $arr -> region, $arr -> coordinates, $arr -> runway, $arr -> airline);
         }

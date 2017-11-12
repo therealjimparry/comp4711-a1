@@ -13,6 +13,11 @@
             return JSON_Helper::get_json_as_assoc (WackyAPI::$airplanes);
         }
 
+        public static function getAirplane ($value) {
+            $airplane_url = WackyAPI::$airplanes . $value;
+            return JSON_Helper::get_json_as_assoc ($airplane_url);
+        }
+
         public static function getAirlines () {
             return JSON_Helper::get_json_as_assoc (WackyAPI::$airlines);
         }

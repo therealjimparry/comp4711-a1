@@ -66,15 +66,25 @@
             return count ($this -> _data);
         }
 
-        // Returns all the planes in the fleet
+		// Returns all the planes in the fleet
+		/*
         function all () {
             return $this -> _data;
-        }
+		} */
+		
+		function viewAll () {
+			$arr = array ();
+            foreach ($this -> _data as $key => $record) {
+                array_push ($arr, $record -> getViewArray());
+            }
+
+            return $arr;
+		}
 
         // Returns a plane which is in the fleet
-        function get_plane ($which) {
+        /* function get_plane ($which) {
             return !isset ($this -> _data[$which]) ? null : $this -> _data[$which];
-        }
+		} */
 
     }
 ?>
