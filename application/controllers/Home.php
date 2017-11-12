@@ -15,8 +15,10 @@ class Home extends Application
 	{
         $this->data['pagebody']   = 'welcome_message';
         $this -> data['airports'] = array (
-            "airport" => $this -> flights -> flight_airports ()
+            "airport" => $this -> flights -> get_flight_airline ()
 		);
+
+		// var_dump ($this -> data['airports']);
 
         $this->data['no_flights']   = $this -> flights  -> count_flights();
 		$this->data['no_planes']    = $this -> fleets   -> count_planes(); 

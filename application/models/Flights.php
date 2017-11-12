@@ -69,6 +69,10 @@
             return $this -> airline -> getAirports();
         }
 
+        function get_flight_airline () {
+            return $this -> airline;
+        }
+
         // Can be replaced with size as inherited from CSV_Model
         // returns number of flights
         function count_flights () {

@@ -3,6 +3,14 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
+
+## [Unreleased] - 2017-11-11 YR
+### Added
+- New function in flights to return simply the airline
+
+### Changed
+- Home view to use new get_flight_airline function in flights
+
 ## [Unreleased] - 2017-11-11 YR
 ### Added
 - AirplaneEntitiy Helper Functions

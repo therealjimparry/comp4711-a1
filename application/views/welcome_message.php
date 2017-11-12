@@ -7,7 +7,7 @@
     <div>
         <h2> List of airports: </h2>
             {airports}
-                <li>Base Airport: {baseC}</li>
+                <li>Base Airport: {community}</li>
                 <h3>Destinations</h3>
                 <ol>
                     <li>{dest1C}</li>
