@@ -13,11 +13,11 @@
 
         function __construct ($id = null, $base = null, $dest1 = null, $dest2 = null, $dest3 = null) {
             parent::__construct();
-            $this -> id = $id;
-            $this -> base = $base;
-            $this -> dest1 = $dest1;
-            $this -> dest2 = $dest2;
-            $this -> dest3 = $dest3;
+            $this -> setId ($id);
+            $this -> setBase ($base);
+            $this -> setDest1 ($dest1);
+            $this -> setDest2 ($dest2);
+            $this -> setDest3 ($dest3);
         }
 
         public function setId ($value) {
@@ -60,12 +60,29 @@
             return $this -> dest3;
         }
 
+        public function getAirports () {
+            return array ($this -> base, $this -> dest1, $this -> dest2, $this -> dest3);
+        }
+
         public static function create_airline_from_obj ($object) {
             return new AirlineEntity ($object -> id, $object -> base, $object -> dest1, $object -> dest2, $object -> dest3);
         }
 
         public static function create_airline_from_arr ($arr) {
             return new AirlineEntity ($arr["id"], $arr["base"], $arr["dest1"], $arr["dest2"], $arr["dest3"]);
+        }
+
+        public static function create_airline_from_obj_with_id ($object) {
+            return new AirlineEntity ($object -> id, AirportEntity::create_airport_from_id($object -> base), AirportEntity::create_airport_from_id($object -> dest1), AirportEntity::create_airport_from_id($object -> dest2), AirportEntity::create_airport_from_id($object -> dest3));
+        }
+
+        public static function create_airline_from_arr_with_id ($arr) {
+            return new AirlineEntity ($arr["id"], AirportEntity::create_airport_from_id($arr["base"]), AirportEntity::create_airport_from_id($arr["dest1"]), AirportEntity::create_airport_from_id($arr["dest2"]), AirportEntity::create_airport_from_id($arr["dest3"]));
+        }
+
+        public static function create_airline_from_arr_with_api_with_id ($value) {
+            $arr = WackyAPI::getAirline ($value);
+            return new AirlineEntity ($arr["id"], AirportEntity::create_airport_from_id($arr["base"]), AirportEntity::create_airport_from_id($arr["dest1"]), AirportEntity::create_airport_from_id($arr["dest2"]), AirportEntity::create_airport_from_id($arr["dest3"]));            
         }
 
     }

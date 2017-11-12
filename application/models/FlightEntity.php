@@ -26,6 +26,10 @@
             $this -> uniqueId = $value;
         }
 
+        public function setPlaneId ($value) {
+            $this -> planeId = $value;
+        }
+
         public function setDepartureAirport ($value) {
             $this -> departureAirport = $value;
         }
@@ -46,8 +50,12 @@
             $this -> aircraftCode = $value;
         }
 
-        public function getUniqueid () {
-            return $this -> uniqueid;
+        public function getUniqueId () {
+            return $this -> uniqueId;
+        }
+
+        public function getPlaneId () {
+            return $this -> planeId;
         }
 
         public function getDepartureAirport() {
@@ -84,6 +92,14 @@
 
         public static function create_flight_from_arr ($arr) {
             return new FlightEntity ($arr["uniqueId"], $arr["destinationAirport"], $arr["departureAirport"], $arr["departureTime"], $arr["arrivalTime"], $arr["aircraftCode"]);
+        }
+
+        public static function create_flight_and_airport_from_arr ($arr) {
+            return new FlightEntity ($arr["uniqueId"], AirportEntity::create_airport_from_id ($arr["departureLocation"]), AirportEntity::create_airport_from_id ($arr["destinationLocation"]), $arr["departureTime"], $arr["arrivalTime"], $arr["planeId"]);
+        }
+
+        public static function create_flight_and_airport_from_obj ($object) {
+            return new FlightEntity ($object -> uniqueId, AirportEntity::create_airport_from_id ($object -> departureLocation),  AirportEntity::create_airport_from_id ($object -> destinationLocation), $object -> departureTime, $object -> arrivalTime, $object -> planeId);
         }
        
     }

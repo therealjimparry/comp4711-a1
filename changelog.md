@@ -5,6 +5,16 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 ## [Unreleased] - 2017-11-11 YR
 ### Added
+- AirplaneEntitiy Helper Functions
+- AirlineEntity Helper Functions
+- FlightEntity HelperFunctions
+- CSV_Model for flights
+
+### Changed
+- Changed CSV data for Flights to use uniqueId instead of flightId
+
+## [Unreleased] - 2017-11-11 YR
+### Added
 - CSV Model
 - Data Mapper
 - Memory_Model

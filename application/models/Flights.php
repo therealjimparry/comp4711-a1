@@ -5,111 +5,84 @@
         Gets all airports from Airports model and creates list of fights from
         Albatros airport.
     */
-    class Flights extends CI_Model {
-        
-        var $data;
-        var $airports;
-        var $planes;
+    class Flights extends CSV_Model {
 
+        private static $fleetdata = APPPATH . '/data/flights.csv';
+        var $airline;
+        
         // Constructor, gets all albatros related airports and creates a flight list
         function __construct () {
-            parent::__construct();
-
-            $this -> airports = $this -> airlines -> get_airline('albatros');
-            $this -> airports -> baseC = "Bella Coola Airport";
-            $this -> airports -> dest1C = "Alert Bay Airport";
-            $this -> airports -> dest2C = "Port Hardy Airport";
-            $this -> airports -> dest3C = "Port McNeill Airport";
-            $this -> planes   = $this -> fleets   -> all ();
-            $this -> data = array();
-
-            $index = 0;
-            
-            foreach ($this -> planes as $key => $record) {
-                array_push ($this-> data, array(
-                    'departureLocation' => $this -> airports -> base,
-                    'destinationLocation' => $this -> airports -> dest1,
-                    'departureLocationC' => "Bella Coola",
-                    'destinationLocationC' => "Alert Bay",
-                    'departureTime' => '0800',
-                    'arrivalTime' => '1100',
-                    'aircraftCode' => $key,
-                ));
-
-                array_push ($this-> data, array(
-                        'departureLocation' => $this -> airports -> dest1,
-                        'destinationLocation' => $this -> airports -> dest2,
-                        'departureLocationC' => "Alert Bay",
-                        'destinationLocationC' => "Port Hardy",
-                        'departureTime' => '1130',
-                        'arrivalTime' => '1430',
-                        'aircraftCode' => $key,
-                ));
-
-                array_push ($this-> data, array(
-                    'departureLocation' => $this -> airports -> dest2,
-                    'destinationLocation' => $this -> airports -> base,
-                    'departureLocationC' => "Port Hardy",
-                    'destinationLocationC' => "Bella Coola",
-                    'departureTime' => '1500',
-                    'arrivalTime' => '1930',
-                    'aircraftCode' => $key,
-                ));
-
-                array_push ($this-> data, array(
-                    'departureLocation' => $this -> airports -> base,
-                    'destinationLocation' => $this -> airports -> dest3,
-                    'departureLocationC' => "Bella Coola",
-                    'destinationLocationC' => "Port McNeill",
-                    'departureTime' => '0900',
-                    'arrivalTime' => '1200',
-                    'aircraftCode' => $key,
-                ));
-
-                array_push ($this-> data, array(
-                    'departureLocation' => $this -> airports -> dest3,
-                    'destinationLocation' => $this -> airports -> base,
-                    'departureLocationC' => "Port McNeill",
-                    'destinationLocationC' => "Bella Coola",
-                    'departureTime' => '1230',
-                    'arrivalTime' => '1530',
-                    'aircraftCode' => $key,
-                ));
-
-            }
-
-            $arr = array ();
-            foreach ($this -> data as $key => $record) {
-                $record['key'] = "a{$key}";
-                $arr["a{$key}"] = $record;
-            }
-
-            $this -> data = $arr;
+            parent::__construct(Flights::$fleetdata, 'uniqueId');
+            $this -> airline = AirlineEntity::create_airline_from_arr_with_api_with_id ('albatros');
         }
+
+        /**
+    	 * Load the collection state appropriately, depending on persistence choice.
+    	 * OVER-RIDE THIS METHOD in persistence choice implementations
+    	 */
+    	protected function load()
+    	{
+    		//---------------------
+    		if (($handle = fopen($this->_origin, "r")) !== FALSE)
+    		{
+    			$first = true;
+    			while (($data = fgetcsv($handle)) !== FALSE)
+    			{
+    				if ($first)
+    				{
+    					// populate field names from first row
+    					$this->_fields = $data;
+    					$first = false;
+    				}
+    				else
+    				{
+    					// build object from a row
+    					$record = new stdClass();
+    					for ($i = 0; $i < count($this->_fields); $i++ )
+    						$record->{$this->_fields[$i]} = $data[$i];
+                        $key = $record->{$this->_keyfield};
+                        
+                        $record = $this -> convert_record ($record);
+                        $this->_data[$key] = $record;
+    				}
+    			}
+    			fclose($handle);
+    		}
+    		// --------------------
+    		// rebuild the keys table
+    		$this->reindex();
+        }
+        
+        function convert_record ($record) {
+            return (is_array($record)) ? FlightEntity::create_flight_and_airport_from_arr ($record) : FlightEntity::create_flight_and_airport_from_obj ($record);
+        }
+
+        // Add a record to the collection
+    	function add($record)
+    	{
+    		$record = $this -> convert_record ($record);
+    		parent::add ($record);
+    	}
 
         // returns airports for the flights
         function flight_airports () {
-            return $this -> airports;
+            return $this -> airline -> getAirports();
         }
 
-        // returns name of base airport
-        function base_name () {
-            return $this -> airports['base'];
-        }
-
+        // Can be replaced with size as inherited from CSV_Model
         // returns number of flights
         function count_flights () {
-            return count ($this -> data);
+            return count ($this -> _data);
         }
 
         // Returns all the flights in the schedule
         function all () {
-            return $this -> data;
+            return $this -> _data;
         }
 
         // Returns a flight from the schedule
-        function get ($which) {
-            return !isset ($this->data[$which]) ? null : $this -> data[$which];
+        function get_flight ($which) {
+            return !isset ($this -> _data[$which]) ? null : $this -> _data[$which];
         }
 
     }

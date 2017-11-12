@@ -15,13 +15,13 @@
 
         function __construct ($id = null, $community = null, $airport = null, $region = null, $coordinates = null, $runway = null, $airline = null) {
             parent::__construct();
-            $this -> id = $id;
-            $this -> community = $community;
-            $this -> airport = $airport;
-            $this -> region = $region;
-            $this -> coordinates = $coordinates;
-            $this -> runway = $runway;
-            $this -> airline = $airline;
+            $this -> setId ($id);
+            $this -> setCommunity ($community);
+            $this -> setAirport ($airport);
+            $this -> setRegion ($region);
+            $this -> setCoordinates ($coordinates);
+            $this -> setRunway ($runway);
+            $this -> setAirline ($airline);
         }
 
         public function setId ($value) {
@@ -82,6 +82,10 @@
 
         public static function create_airport_from_arr ($arr) {
             return new AirportEntity ($arr["id"], $arr["community"], $arr["airport"], $arr["region"], $arr["coordinates"], $arr["runway"], $arr["airline"]);
+        }
+
+        public static function create_airport_from_id ($value) {
+            return AirportEntity::create_airport_from_arr (WackyAPI::getAirport($value));
         }
 
     }

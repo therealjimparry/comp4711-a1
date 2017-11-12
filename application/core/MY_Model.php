@@ -481,7 +481,6 @@ class MY_Model2 extends MY_Model {
 // Include any other persistence implementations, so that they can be used
 // as base models for any in a webapp.
 
-
 include_once 'JSON_Helper.php'; // JSON Grabbing helper class
 include_once 'WackyAPI.php'; // API to access server
 include_once 'Entity.php'; // Entity class

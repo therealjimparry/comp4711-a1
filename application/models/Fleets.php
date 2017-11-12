@@ -4,13 +4,13 @@
         Model for fleet.
         Gets all plane data from Plane and creates fleet using name
     */
-    class Fleets extends CSV_Model implements DataMapper {
+    class Fleets extends CSV_Model {
 
         private static $fleetdata = APPPATH . '/data/fleet.csv';
 
         // Constructor, gets all planes and adds to data array planes that are in the fleet
         function __construct () {
-            parent::__construct(Fleets::$fleetdata, 'planeId');
+			parent::__construct(Fleets::$fleetdata, 'planeId');
         }
 
         /**
@@ -73,7 +73,7 @@
 
         // Returns a plane which is in the fleet
         function get_plane ($which) {
-            return !isset ($this->_data[$which]) ? null : $this -> _data[$which];
+            return !isset ($this -> _data[$which]) ? null : $this -> _data[$which];
         }
 
     }
