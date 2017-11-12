@@ -46,7 +46,7 @@
         }
 
         public static function getAlbatros() {
-            return $this -> getAirline (WackyAPI::$airline);
+            return WackyApi::getAirline("albatros");
         }
 
     }
