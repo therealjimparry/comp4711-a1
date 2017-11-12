@@ -52,6 +52,10 @@
             $this -> airline = $value;
         }
 
+        public function getId() {
+            return $this -> id;
+        }
+        
         public function getCommunity () {
             return $this -> community;
         }

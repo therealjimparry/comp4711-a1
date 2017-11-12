@@ -23,6 +23,7 @@ class Home extends Application
         $this->data['no_flights']   = $this -> flights  -> count_flights();
 		$this->data['no_planes']    = $this -> fleets   -> count_planes(); 
 		$this->data['all_flights']  = $this -> flights  -> all();
+		$this->data['fleets']  = $this -> fleets  -> all();
 		$this->render();
 	}
 
