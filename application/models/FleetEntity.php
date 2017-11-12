@@ -1,38 +1,41 @@
 <?php
 
-    require_once APPPATH . 'core/Entity.php';
-
     /*
-        Model for fleet
+        Model for fleet entity, contains information about an entity in a fleet
      */
     class FleetEntity extends Entity {
 
-        protected $planes;
+        protected $planeId;
+        protected $type;
 
-        function __construct ($planes = null) {
+        function __construct ($planeId = null, $type = null) {
             parent::__construct();
-            $this -> planes = $planes;
+            $this -> setPlaneId ($planeId);
+            $this -> setType ($type);
         }
 
-        public function setPlanes ($value) {
-            $this -> planes = $value;
+        public function setPlaneId ($value) {
+            $this -> planeId = $value;
         }
 
-        public function addPlane ($value) {
-            array_push ($this -> planes, $value);
+        public function setType ($value) {
+            $this -> type = $value;
         }
 
-        public function removePlane ($id) {
-            if (empty ($this -> planes))
-                return;
-            foreach ($this -> planes as $key => $record) {
-                if ($key == $id)
-                    unset ($this -> planes[$key]);
-            }
+        public function getPlaneId () {
+            return $this -> planeId;
         }
 
-        public function getPlanes () {
-            return $this -> planes;
+        public function getType () {
+            return $this -> type;
+        }
+
+        public static function create_fleet_entity_from_obj ($object) {
+            return new FleetEntity ($object -> planeId, $object -> type);
+        }
+
+        public static function create_fleet_entity_from_arr ($arr) {
+            return new FleetEntity ($arr["planeId"], $arr["type"]);
         }
 
     }

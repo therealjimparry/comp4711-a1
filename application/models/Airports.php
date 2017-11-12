@@ -1,6 +1,5 @@
 <?php
 
-    require_once APPPATH . 'core/WackyAPI.php';
     /*
         Model for airports.
         Gets all airports json data from server

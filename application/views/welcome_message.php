@@ -7,12 +7,12 @@
     <div>
         <h2> List of airports: </h2>
             {airports}
-                <li>Base Airport: {baseC}</li>
+                <li>Base Airport: {base}</li>
                 <h3>Destinations</h3>
                 <ol>
-                    <li>{dest1C}</li>
-                    <li>{dest2C}</li>
-                    <li>{dest3C}</li>
+                    <li>{dest1}</li>
+                    <li>{dest2}</li>
+                    <li>{dest3}</li>
                 </ol>
             {/airports}
     </div>

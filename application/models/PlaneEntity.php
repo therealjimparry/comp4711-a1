@@ -1,7 +1,5 @@
 <?php
 
-    require_once APPPATH . 'core/Entity.php';
-
     /*
         Model for plane
      */
@@ -18,7 +16,7 @@
         protected $takeoff;
         protected $hourly;
 
-        function __construct ($id = "", $manufacturer = "", $model = "", $price = "", $seats = "", $reach = "", $cruise = "", $takeoff = "", $hourly = "") {
+        function __construct ($id = null, $manufacturer = null, $model = null, $price = null, $seats = null, $reach = null, $cruise = null, $takeoff = null, $hourly = null) {
             parent::__construct();
             $this -> id = $id;
             $this -> manufacturer = $manufacturer;
@@ -114,7 +112,7 @@
         }
 
         public static function create_plane_from_obj ($object) {
-            return new PlaneEntity ($object.id, $object.manufacturer, $object.model, $object.price, $object.seats, $object.reach, $object.cruise, $object.takeoff, $object.hourly);
+            return new PlaneEntity ($object -> id, $object -> manufacturer, $object -> model, $object -> price, $object -> seats, $object -> reach, $object -> cruise, $object -> takeoff, $object -> hourly);
         }
 
         public static function create_plane_from_arr ($arr) {
