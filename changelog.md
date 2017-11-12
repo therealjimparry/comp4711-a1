@@ -6,6 +6,25 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased] - 2017-11-11 YR
 ### Added
+- Interface for entities to implement, makes it easier for controller to use entities
+- Class for csv models to extend, makes it easier to controllers to access model items
+
+### Changed
+- Entities implement new interface
+- Models that used CSV_Model now use new model controller helper model
+
+## [Unreleased] - 2017-11-11 YR
+### Added
+- Static function to wackyapi for getting a single airline
+- Functions to planeentity to better handle fleet planes
+- Fleet contains a plane entity
+- View arrays to more entites
+
+### Changed
+- fleet controller, fixed, could not see object values
+
+## [Unreleased] - 2017-11-11 YR
+### Added
 - AirlineEntity Function to return an object that is easier to use in the controller
 
 ### Changed

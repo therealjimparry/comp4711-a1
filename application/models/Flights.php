@@ -5,7 +5,7 @@
         Gets all airports from Airports model and creates list of fights from
         Albatros airport.
     */
-    class Flights extends CSV_Model {
+    class Flights extends Model_Controller_Helper {
 
         private static $fleetdata = APPPATH . '/data/flights.csv';
         var $airline;
@@ -80,14 +80,15 @@
         }
 
         // Returns all the flights in the schedule
+        /*
         function all () {
             return $this -> _data;
-        }
+        } */
 
         // Returns a flight from the schedule
-        function get_flight ($which) {
+        /* function get_flight ($which) {
             return !isset ($this -> _data[$which]) ? null : $this -> _data[$which];
-        }
+        } */
 
     }
 ?>

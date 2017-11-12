@@ -3,7 +3,7 @@
     /*
         Model for plane
      */
-    class AirlineEntity extends Entity {
+    class AirlineEntity extends Entity implements Model_Entity_Controller_Helper {
 
         protected $id;
         protected $base;

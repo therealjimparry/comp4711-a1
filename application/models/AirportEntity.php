@@ -3,7 +3,7 @@
     /*
         Model for airport
      */
-    class AirportEntity extends Entity {
+    class AirportEntity extends Entity implements Model_Entity_Controller_Helper {
 
         protected $id;
         protected $community;
@@ -74,6 +74,10 @@
 
         public function getAirline () {
             return $this -> airline;
+        }
+
+        public function getViewArray () {
+            // Not yet implemented as not required in view
         }
 
         public static function create_airport_from_obj ($object) {

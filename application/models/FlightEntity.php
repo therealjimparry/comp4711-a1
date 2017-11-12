@@ -3,7 +3,7 @@
     /*
         Model for flight
      */
-    class FlightEntity extends Entity {
+    class FlightEntity extends Entity implements Model_Entity_Controller_Helper {
 
         protected $uniqueId;
         protected $departureAirport;
@@ -62,7 +62,7 @@
             return $this -> departureAirport;
         }
 
-        public function getDestinationLocation () {
+        public function getDestinationAirport () {
             return $this -> destinationAirport;
         }
 
@@ -76,6 +76,11 @@
 
         public function getAircraftCode () {
             return $this -> aircraftCode;
+        }
+
+        public function getViewArray () {
+            return array ("key" => $this -> uniqueId, "aircraftCode" => $this -> aircraftCode, "destinationAirport" => $this -> destinationAirport -> getCommunity (), 
+            "departureAirport" => $this -> departureAirport -> getCommunity ());
         }
 
         public static function create_flight_from_obj_with_airport ($object, $destAirport, $departAirport) {
