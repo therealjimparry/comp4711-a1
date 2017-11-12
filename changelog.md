@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## 2017-11-12 - SC
 ### Added
 - Flight model unit tests
+- Added flight bookings controller/view
+- menu bar entry
 
 ### Changed
 - fixed WackyAPI::getAlbatros()
