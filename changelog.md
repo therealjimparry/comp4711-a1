@@ -3,6 +3,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
+
+## [Unreleased] - 2017-11-11 YR
+### Added
+- Interface for entities to implement, makes it easier for controller to use entities
+- Class for csv models to extend, makes it easier to controllers to access model items
+
+### Changed
+- Entities implement new interface
+- Models that used CSV_Model now use new model controller helper model
+
 ## [Unreleased] - 2017-11-11 YR
 ### Added
 - Static function to wackyapi for getting a single airline

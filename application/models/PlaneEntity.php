@@ -3,7 +3,7 @@
     /*
         Model for plane
      */
-    class PlaneEntity extends Entity {
+    class PlaneEntity extends Entity implements Model_Entity_Controller_Helper {
 
         protected $uniqueId;
         protected $plane;

@@ -25,7 +25,6 @@ class Fleet extends Application
 		$this->data['pagebody'] = 'plane';
 		$fleet_plane = $this -> fleets -> get ($id) -> getPlane ();
 		$this->data['plane_info'] = array ("values" => $fleet_plane -> getViewArray ());
-		var_dump ($this -> data['plane_info']);
 		$this -> render();
 	}
 

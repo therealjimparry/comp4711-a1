@@ -4,7 +4,7 @@
         Model for fleet.
         Gets all plane data from Plane and creates fleet using name
     */
-    class Fleets extends CSV_Model {
+    class Fleets extends Model_Controller_Helper {
 
         private static $fleetdata = APPPATH . '/data/fleet.csv';
 
@@ -71,15 +71,6 @@
         function all () {
             return $this -> _data;
 		} */
-		
-		function viewAll () {
-			$arr = array ();
-            foreach ($this -> _data as $key => $record) {
-                array_push ($arr, $record -> getViewArray());
-            }
-
-            return $arr;
-		}
 
         // Returns a plane which is in the fleet
         /* function get_plane ($which) {

@@ -3,7 +3,7 @@
     /*
         Model for fleet entity, contains information about an entity in a fleet
      */
-    class FleetEntity extends Entity {
+    class FleetEntity extends Entity implements Model_Entity_Controller_Helper{
 
         protected $planeId;
         protected $type;

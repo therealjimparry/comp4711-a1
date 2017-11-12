@@ -3,7 +3,7 @@
     /*
         Model for airport
      */
-    class AirportEntity extends Entity {
+    class AirportEntity extends Entity implements Model_Entity_Controller_Helper {
 
         protected $id;
         protected $community;
