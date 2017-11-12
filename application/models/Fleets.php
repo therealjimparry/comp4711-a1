@@ -1,55 +1,79 @@
 <?php
+
     /*
         Model for fleet.
         Gets all plane data from Plane and creates fleet using name
     */
-    class Fleets extends CI_Model {
-        var $data;
+    class Fleets extends CSV_Model implements DataMapper {
+
+        private static $fleetdata = APPPATH . '/data/fleet.csv';
 
         // Constructor, gets all planes and adds to data array planes that are in the fleet
         function __construct () {
-            parent::__construct();
-
-            $temp = $this -> planes -> all ();
-            
-            $ap = -1;
-            
-            // Iterate through each record in associate array and check if type matches plane in fleet
-            // assigns a plane to the fleet if it's name matches the selected planes
-            foreach ($temp as $key => $record) {
-                $check = false;
-                if (trim ($record -> id) != "") {
-                    $check = true;
-                    switch ($record -> id) {
-                        case "avanti"  :
-                            break;
-                        case "caravan" :
-                            break;
-                        default :
-                            $check = false;
-                    }
-                    if ($check) {
-                        ++$ap;
-                        $record -> key = "a{$ap}";
-                        $this -> data["a$ap"] = $record;
-                    }
-                }
-            }
+            parent::__construct(Fleets::$fleetdata, 'planeId');
         }
+
+        /**
+    	 * Load the collection state appropriately, depending on persistence choice.
+    	 * OVER-RIDE THIS METHOD in persistence choice implementations
+    	 */
+    	protected function load()
+    	{
+    		//---------------------
+    		if (($handle = fopen($this->_origin, "r")) !== FALSE)
+    		{
+    			$first = true;
+    			while (($data = fgetcsv($handle)) !== FALSE)
+    			{
+    				if ($first)
+    				{
+    					// populate field names from first row
+    					$this->_fields = $data;
+    					$first = false;
+    				}
+    				else
+    				{
+    					// build object from a row
+    					$record = new stdClass();
+    					for ($i = 0; $i < count($this->_fields); $i++ )
+    						$record->{$this->_fields[$i]} = $data[$i];
+                        $key = $record->{$this->_keyfield};
+                        
+                        $record = $this -> convert_record ($record);
+                        $this->_data[$key] = $record;
+    				}
+    			}
+    			fclose($handle);
+    		}
+    		// --------------------
+    		// rebuild the keys table
+    		$this->reindex();
+        }
+        
+        function convert_record ($record) {
+            return (is_array($record)) ? FleetEntity::create_fleet_entity_from_arr ($record) : FleetEntity::create_fleet_entity_from_obj ($record);
+        }
+
+        // Add a record to the collection
+    	function add($record)
+    	{
+    		$record = $this -> convert_record ($record);
+    		parent::add ($record);
+    	}
 
         // return number of planes in the fleet
         function count_planes () {
-            return count ($this -> data);
+            return count ($this -> _data);
         }
 
         // Returns all the planes in the fleet
         function all () {
-            return $this -> data;
+            return $this -> _data;
         }
 
         // Returns a plane which is in the fleet
-        function get ($which) {
-            return !isset ($this->data[$which]) ? null: $this -> data[$which];
+        function get_plane ($which) {
+            return !isset ($this->_data[$which]) ? null : $this -> _data[$which];
         }
 
     }

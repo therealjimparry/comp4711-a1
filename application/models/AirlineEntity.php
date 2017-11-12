@@ -1,7 +1,5 @@
 <?php
 
-    require_once APPPATH . 'core/Entity.php';
-
     /*
         Model for plane
      */
@@ -63,7 +61,7 @@
         }
 
         public static function create_airline_from_obj ($object) {
-            return new AirlineEntity ($object.id, $object.base, $object.dest1, $object.dest2, $object.dest3);
+            return new AirlineEntity ($object -> id, $object -> base, $object -> dest1, $object -> dest2, $object -> dest3);
         }
 
         public static function create_airline_from_arr ($arr) {

@@ -3,6 +3,17 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
+## [Unreleased] - 2017-11-11 YR
+### Added
+- CSV Model
+- Data Mapper
+- Memory_Model
+- Load and Add function overriding in fleets after extending csv_model
+
+### Changed
+- Entity and Require once loading to be put in my model at the bottom for global access and loading
+- object . to ->
+- setters in constructor transition has begun
 
 ## [Unreleased] - 2017-11-11 DH
 ### Added

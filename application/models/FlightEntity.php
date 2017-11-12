@@ -1,7 +1,5 @@
 <?php
 
-    require_once APPPATH . 'core/Entity.php';
-
     /*
         Model for flight
      */
@@ -16,12 +14,12 @@
 
         function __construct ($uniqueId = null, $destinationAirport = null, $departureAirport = null, $departureTime = null, $arrivalTime = null, $aircraftCode = null) {
             parent::__construct();
-            $this -> uniqueId = $uniqueId;
-            $this -> destinationAirport = $destinationAirport;
-            $this -> departureAirport = $departureAirport;
-            $this -> departureTime = $departureTime;
-            $this -> arrivalTime = $arrivalTime;
-            $this -> aircraftCode = $aircraftCode;
+            $this -> setUniqueId ($uniqueId);
+            $this -> setDestinationAirport ($destinationAirport);
+            $this -> setDepartureAirport ($departureAirport);
+            $this -> setDepartureTime ($departureTime);
+            $this -> setArrivalTime ($arrivalTime);
+            $this -> setAircraftCode ($aircraftCode);
         }
 
         public function setUniqueId ($value) {
@@ -73,7 +71,7 @@
         }
 
         public static function create_flight_from_obj_with_airport ($object, $destAirport, $departAirport) {
-            return new FlightEntity ($object.uniqueId, $destAirport, $departAirport, $object.departureTime, $object.arrivalTime, $object.aircraftCode);
+            return new FlightEntity ($object -> uniqueId, $destAirport, $departAirport, $object -> departureTime, $object -> arrivalTime, $object -> aircraftCode);
         }
 
         public static function create_flight_from_arr_with_airport ($arr, $destAirport, $departAirport) {
@@ -81,7 +79,7 @@
         }
 
         public static function create_flight_from_obj ($object) {
-            return new FlightEntity ($object.uniqueId, $object.destinationAirport, $object.departureAirport, $object.departureTime, $object.arrivalTime, $object.aircraftCode);
+            return new FlightEntity ($object -> uniqueId, $object -> destinationAirport, $object -> departureAirport, $object -> departureTime, $object -> arrivalTime, $object -> aircraftCode);
         }
 
         public static function create_flight_from_arr ($arr) {

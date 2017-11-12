@@ -1,7 +1,5 @@
 <?php
 
-    require_once APPPATH . 'core/WackyAPI.php';
-
     /*
         Model for planes.
         Gets all plane data from json from server

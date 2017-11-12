@@ -1,10 +1,12 @@
 <?php
+
     /*
         Model for Flights.
         Gets all airports from Airports model and creates list of fights from
         Albatros airport.
     */
     class Flights extends CI_Model {
+        
         var $data;
         var $airports;
         var $planes;
