@@ -51,7 +51,7 @@
         }
         
         function convert_record ($record) {
-            return (is_array($record)) ? FleetEntity::create_fleet_entity_from_arr ($record) : FleetEntity::create_fleet_entity_from_obj ($record);
+            return (is_array($record)) ? FleetEntity::create_fleet_entity_and_plane_from_arr ($record) : FleetEntity::create_fleet_entity_and_plane_from_obj ($record);
         }
 
         // Add a record to the collection
