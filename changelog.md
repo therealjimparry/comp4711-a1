@@ -11,6 +11,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Updated
 - Fleet Controller
 
+## 2017-11-12 - YR
+### Updated
+- CSV Model, back to older format
+- Fleets page and fleet entity to older version
+
 ## 2017-11-12 - SC
 ### Added
 - Form to add/edit flights
