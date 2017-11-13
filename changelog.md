@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## 2017-11-12 - DH
+### Added
+- fleet_owner and fleet_guest to display based on user permission
+
+### Updated
+- Fleet Controller
+
 ## 2017-11-12 - YR
 ### Updated
 - CSV Model, back to older format
