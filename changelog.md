@@ -5,6 +5,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## 2017-11-12 - YR
+### Added
+- Store method to Model_Controller_Helper
+- getCSVArray method to Entity Model
+
+### Updated
+- Fixed form add for flight
+
+## 2017-11-12 - YR
 ### Updated
 - CSV Model, back to older format
 - Fleets page and fleet entity to older version

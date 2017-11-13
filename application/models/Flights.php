@@ -54,14 +54,15 @@
         }
         
         function convert_record ($record) {
+            // var_dump ($record);
             return (is_array($record)) ? FlightEntity::create_flight_and_airport_from_arr ($record) : FlightEntity::create_flight_and_airport_from_obj ($record);
         }
 
         // Add a record to the collection
     	function add($record)
     	{
-    		$record = $this -> convert_record ($record);
-    		parent::add ($record);
+            $record = $this -> convert_record ($record);
+    	    parent::add ($record);
     	}
 
         // returns airports for the flights
@@ -78,6 +79,8 @@
         function count_flights () {
             return count ($this -> _data);
         }
+
+
 
         // Returns all the flights in the schedule
         /*

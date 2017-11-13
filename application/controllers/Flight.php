@@ -50,17 +50,19 @@ class Flight extends Application
         
         $fleets = $this->fleets->all();
         $planeIds = array();
-        foreach ($fleets as $fleet) {
-            array_push($planeIds, $fleet->plane->uniqueId);
-        }
-        $albatros = WackyAPI::getAlbatros();
-        $locations = [$albatros['base'], $albatros['dest1'], $albatros['dest2'], $albatros['dest3']];
+        foreach ($fleets as $fleet)
+            $planeIds[$fleet->plane->uniqueId] = $fleet->plane->uniqueId;
+            // array_push($planeIds, $fleet->plane->uniqueId);
+
+        $albatros = AirlineEntity::create_airline_from_arr_with_api_with_id('albatros');
+        // $locations = [$albatros['base'], $albatros['dest1'], $albatros['dest2'], $albatros['dest3']];
+        $locations = $albatros -> getAirportsForDropdown ();
 
         $fields = array(
             'fflightnumber'     => form_label('FlightNumber') . form_input('uniqueId', $flight->uniqueId),
             'faircraft'         => form_label('Aircraft') . form_dropdown('planeId', $planeIds),
-            'fdeparture'        => form_label('Departure Location') . form_dropdown('departurelocation', $locations),
-            'farrival'          => form_label('Arrival Location') . form_dropdown('destinationLocation', $locations),
+            'fdeparture'        => form_label('Departure Location') . form_dropdown('departureLocation', $locations, $flight->departureLocation),
+            'farrival'          => form_label('Arrival Location') . form_dropdown('destinationLocation', $locations, $flight->destinationLocation),
             'fdeparturetime'    => form_label('Departure Time') . form_input('departureTime', $flight->departureTime),
             'farrivaltime'      => form_label('Arrival Time') . form_input('arrivalTime', $flight->arrivalTime),
             'zsubmit'           => form_submit('submit', 'Update the flight'),
@@ -80,28 +82,37 @@ class Flight extends Application
 
         // retrieve & update data transfer buffer
         $flight = (array) $this->session->userdata('flight');
+        // var_dump ($this->input->post());
         $flight = array_merge($flight, $this->input->post());
         $flight = (object) $flight;  // convert back to object
         $this->session->set_userdata('flight', (object) $flight);
 
         // validate away
-        if ($this->form_validation->run())
-        {
+        // if ($this->form_validation->run())
+        // {
             if (empty($flight->uniqueId))
             {
                 // $flight->uniqueId = $this->flights->highest() + 1;
                 $flight->uniqueId = "a12345";
+                // var_dump ($flight);
                 $this->flights->add($flight);
                 $this->alert('Flight ' . $flight->uniqueId . ' added', 'success');
             } else
             {
-                $this->flights->update($flight);
-                $this->alert('Flight ' . $flight->uniqueId . ' updated', 'success');
+                if (!empty ($this -> flights -> get($flight -> uniqueId))) {
+                    $this->flights->update($flight);
+                    $this->alert('Flight ' . $flight->uniqueId . ' updated', 'success');
+                } else {
+                    // var_dump ($flight);
+                    $this->flights->add($flight);
+                    $this->alert('Flight ' . $flight->uniqueId . ' added', 'success');
+                }
+                
             }
-        } else
-        {
+      /* } else
+       {
             $this->alert('<strong>Validation errors!<strong><br>' . validation_errors(), 'danger');
-        }
+       } */
         $this->showit();
     }
     // build a suitable error mesage

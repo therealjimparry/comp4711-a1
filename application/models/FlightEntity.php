@@ -91,6 +91,17 @@
             );
         }
 
+        public function getCSVArray () {
+            return array (
+                "uniqueId" => $this -> uniqueId,
+                "planeId" => $this -> aircraftCode,
+                "departureLocation" => $this -> departureAirport -> getId (),
+                "destinationLocation" => $this -> destinationAirport -> getId (),
+                "departureTime" => $this -> departureTime,
+                "arrivalTime" => $this -> arrivalTime,
+            );
+        }
+
         public static function create_flight_from_obj_with_airport ($object, $destAirport, $departAirport) {
             return new FlightEntity ($object -> uniqueId, $destAirport, $departAirport, $object -> departureTime, $object -> arrivalTime, $object -> aircraftCode);
         }
