@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## 2017-11-12 - DH
 ### Changed
+- info controller to extend CI_Controller instead of Application
+- info controller's `flight ()` method to `flights ()`
+
+## 2017-11-12 - DH
+### Changed
 - fleet.csv data format; added additional columns
 
 ## 2017-11-12 - YR

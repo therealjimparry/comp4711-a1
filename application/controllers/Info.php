@@ -9,7 +9,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     REST type controller
     Useful for other applications to use our data
 */
-class Info extends Application
+class Info extends CI_Controller
 {
     /**
      * fleet sub controller method to retreive and display all data in fleet as JSON
@@ -23,7 +23,7 @@ class Info extends Application
     /**
      * flight sub controller method to retreive and display all data in flight as JSON
      */
-    public function flight () {
+    public function flights () {
         $this->data['flights'] = $this->flights->all();
         header("Content-type: application/json");
         echo json_encode($this->data['flights']);
