@@ -1,4 +1,3 @@
-<h1>Welcome to Albatros Airlines!</h1>
 <div class="row">
     <div class="col-md-6">
         <div class="panel panel-info">
