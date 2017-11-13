@@ -53,11 +53,11 @@
         }
 
         public static function create_fleet_entity_from_obj ($object) {
-            return new FleetEntity ($object -> planeId, $object -> type, $object -> plane);
+            return new FleetEntity ($object -> planeId, $object -> type);
         }
 
         public static function create_fleet_entity_from_arr ($arr) {
-            return new FleetEntity ($arr["planeId"], $arr["type"], $arr["plane"]);
+            return new FleetEntity ($arr["planeId"], $arr["type"]);
         }
 
         public static function create_fleet_entity_and_plane_from_obj ($object) {
