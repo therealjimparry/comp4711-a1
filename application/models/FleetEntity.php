@@ -9,12 +9,12 @@
         protected $type;
         protected $plane;
 
-        function __construct ($planeId = null, $type = null, $plane = null) {
+        function __construct ($planeId = null, $type = null) {
             parent::__construct();
             $this -> setPlaneId ($planeId);
             $this -> setType ($type);
-            $this -> setPlane ($plane);
-            // $this -> setPlaneFromIdAndType ($planeId, $type);
+            // $this -> setPlane ($plane);
+            $this -> setPlaneFromIdAndType ($planeId, $type);
         }
 
         public function setPlaneId ($value) {
