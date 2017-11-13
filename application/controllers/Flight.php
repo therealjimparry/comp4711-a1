@@ -57,13 +57,13 @@ class Flight extends Application
         $locations = [$albatros['base'], $albatros['dest1'], $albatros['dest2'], $albatros['dest3']];
 
         $fields = array(
-            'fflightnumber'     => form_label('FlightNumber') . form_input('flightnumber', $flight->uniqueId),
-            'faircraft'         => form_label('Aircraft') . form_dropdown('aircraft', $planeIds),
+            'fflightnumber'     => form_label('FlightNumber') . form_input('uniqueId', $flight->uniqueId),
+            'faircraft'         => form_label('Aircraft') . form_dropdown('planeId', $planeIds),
             'fdeparture'        => form_label('Departure Location') . form_dropdown('departurelocation', $locations),
-            'farrival'          => form_label('Arrival Location') . form_dropdown('arrivallocation', $locations),
-            'fdeparturetime'    => form_label('Departure Time') . form_input('departtime', $flight->departureTime),
-            'farrivaltime'      => form_label('Arrival Time') . form_input('arrivetime', $flight->arrivalTime),
-            'zsubmit'           => form_submit('submit', 'Update the TODO task'),
+            'farrival'          => form_label('Arrival Location') . form_dropdown('destinationLocation', $locations),
+            'fdeparturetime'    => form_label('Departure Time') . form_input('departureTime', $flight->departureTime),
+            'farrivaltime'      => form_label('Arrival Time') . form_input('arrivalTime', $flight->arrivalTime),
+            'zsubmit'           => form_submit('submit', 'Update the flight'),
         );
         $this->data = array_merge($this->data, $fields);
 
