@@ -22,8 +22,10 @@
             $this -> setAircraftCode ($aircraftCode);
         }
 
-        public function setUniqueId ($value) {
-            $this -> uniqueId = $value;
+        public function setUniqueId($value) {
+            if (is_string($value) && preg_match("/^a(\d)+/", $value) === 1) {
+                $this -> uniqueId = $value;
+            }
         }
 
         public function setPlaneId ($value) {
