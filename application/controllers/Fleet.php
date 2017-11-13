@@ -13,7 +13,11 @@ class Fleet extends Application
 	 */
 	public function index()
 	{
-		$this->data['pagebody'] = 'fleet';
+		if($this -> session -> userdata('userrole') == "Owner") {
+			$this->data['pagebody'] = 'fleet_owner';
+		} else {
+			$this->data['pagebody'] = 'fleet_guest';
+		}
 		$this->data['fleets']   = $this-> fleets -> viewAll();
 		$this->render(); 
 	}
