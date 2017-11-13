@@ -79,8 +79,14 @@
         }
 
         public function getViewArray () {
-            return array ("key" => $this -> uniqueId, "aircraftCode" => $this -> aircraftCode, "destinationAirport" => $this -> destinationAirport -> getCommunity (), 
-            "departureAirport" => $this -> departureAirport -> getCommunity ());
+            return array (
+                "key" => $this -> uniqueId,
+                "aircraftCode" => $this -> aircraftCode,
+                "destinationAirport" => $this -> destinationAirport -> getCommunity (),
+                "departureAirport" => $this -> departureAirport -> getCommunity (),
+                "departureTime" => $this -> departureTime,
+                "arrivalTime" => $this -> arrivalTime,
+            );
         }
 
         public static function create_flight_from_obj_with_airport ($object, $destAirport, $departAirport) {
@@ -106,7 +112,5 @@
         public static function create_flight_and_airport_from_obj ($object) {
             return new FlightEntity ($object -> uniqueId, AirportEntity::create_airport_from_id ($object -> departureLocation),  AirportEntity::create_airport_from_id ($object -> destinationLocation), $object -> departureTime, $object -> arrivalTime, $object -> planeId);
         }
-       
     }
-
 ?>
