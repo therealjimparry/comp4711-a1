@@ -1,0 +1,6 @@
+uniqueId,planeId,departureLocation,destinationLocation,departureTime,arrivalTime
+a11111,a00111,YBL,YAL,800,1100
+a11112,a00111,YAL,YZT,1130,1430
+a11113,a00111,YZT,YBL,1500,1930
+a11221,a00222,YBL,YMP,900,1200
+a11222,a00222,YMP,YBL,1230,1530

@@ -1,10 +1,10 @@
 <?php
 
     /*
-        Model for airlines.
-        Gets all airlines json data from server
+        Model for airports.
+        Gets all airports json data from server
     */
-    class Airlines extends CI_Model 
+    class Airports extends CI_Model 
     {
         var $data;
 
@@ -12,12 +12,9 @@
         public function __construct () 
         {
             parent::__construct ();
-            $this -> data = WackyAPI::getAirlines ();
-            foreach ($this -> data as $key => $record) {
-                $record['key'] = "a{$key}";
-                $this->data["a{$key}"] = $record;
-            }
-            $this -> convert_to_airline_array();
+            
+            $this -> data = WackyAPI::getAirports();
+            $this -> convert_to_airport_array();
         }
 
         // Returns all airlines
@@ -25,19 +22,19 @@
         {
             return $this -> data;
         }
-
+        
         // Convert data recieved in array format from server to an array containing plane objects
-        private function convert_to_airline_array () {
+        private function convert_to_airport_array () {
             $records = array();
             foreach ($this -> data as $key => $record)
-                array_push ($records, AirlineEntity::create_airline_from_arr ($record));
+                array_push ($records, AirportEntity::create_airport_from_arr ($record));
             $this -> data = $records;
         }
 
-        // Returns a specific airline
-        public function get_airline($which) {
+        // Returns a specific airport
+        public function get_airport($which) {
             foreach ($this -> data as $value)
-                if ($value -> id == $which)
+                if ($value["id"] == $which)
                     return $value;
             return null;
         }

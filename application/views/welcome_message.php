@@ -1,19 +1,25 @@
-<h1>Welcome to Albatros Airlines!</h1>
-<div id="body">
-    <div style="text-align: center; list-style-type: none;">
-    <h2>Number of planes: {no_planes}</h2>
-    <h2>Number of flights: {no_flights}</h2>
-
-    <div>
-        <h2> List of airports: </h2>
-            {airports}
-                <li>Base Airport: {baseC}</li>
+<div class="row">
+    <div class="col-md-6">
+        <div class="panel panel-info">
+            <div class="panel-body">
+                <h3>Number of planes: {no_planes}</h3>
+                <h3>Number of flights: {no_flights}</h3>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="panel panel-danger">
+            <div class="panel-body">
+                {airports}
+                <h2>Base Airport: {base}</h2>
                 <h3>Destinations</h3>
                 <ol>
-                    <li>{dest1C}</li>
-                    <li>{dest2C}</li>
-                    <li>{dest3C}</li>
+                    <li>{dest1}</li>
+                    <li>{dest2}</li>
+                    <li>{dest3}</li>
                 </ol>
-            {/airports}
+                {/airports}
+            </div>
+        </div>
     </div>
 </div>
