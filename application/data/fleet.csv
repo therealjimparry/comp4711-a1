@@ -1,3 +1,3 @@
-planeId,id,manufacturer,model,price,seats,reach,cruise,takeoff,hourly
-a00111,avanti,Piaggo,"Avanti II",7195,8,2797,589,994,977
-a00222,caravan,Cessna,"Grand Caravan EX",2300,14,1689,340,660,389
+planeId,type
+a00111,avanti
+a00222,caravan
