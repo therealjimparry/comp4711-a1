@@ -35,6 +35,10 @@ class Entity extends CI_Model {
     public function getViewArray () {
         // To be overriden
     }
+
+    public function getCSVArray () {
+        // To be override
+    }
 }
 
 ?>

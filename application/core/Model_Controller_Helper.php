@@ -14,6 +14,27 @@
             return $arr;
         }
 
+       /**
+    	 * Store the collection state appropriately, depending on persistence choice.
+    	 * OVER-RIDE THIS METHOD in persistence choice implementations
+    	 */
+    	protected function store()
+    	{
+    		// rebuild the keys table
+    		$this->reindex();
+    		//---------------------
+    		if (($handle = fopen($this->_origin, "w")) !== FALSE)
+    		{
+    			fputcsv($handle, $this->_fields);
+    			foreach ($this->_data as $key => $record) {
+    				$record = $record -> getCSVArray();
+    				fputcsv($handle, array_values((array) $record));
+    			}
+    			fclose($handle);
+    		}
+    		// --------------------
+    	}
+
     }
 
 ?>

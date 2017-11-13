@@ -64,6 +64,14 @@
             return array ($this -> base, $this -> dest1, $this -> dest2, $this -> dest3);
         }
 
+        public function getAirportsForDropdown () {
+            return array (
+                $this -> base -> getId () => $this -> base -> getCommunity (),
+                $this -> dest1 -> getId () => $this -> dest1 -> getCommunity (),
+                $this -> dest2 -> getId () => $this -> dest2 -> getCommunity (),
+                $this -> dest3 -> getId () => $this -> dest3 -> getCommunity ());
+        }
+
         public function getViewArray () {
             return array ("id" => $this -> id, "base" => $this -> base -> getCommunity (), "dest1" => $this -> dest1 -> getCommunity (), 
             "dest2" => $this -> dest2 -> getCommunity (), "dest3" => $this -> dest3 -> getCommunity ());
