@@ -28,7 +28,6 @@
     			fputcsv($handle, $this->_fields);
     			foreach ($this->_data as $key => $record) {
     				$record = $record -> getCSVArray();
-                    var_dump ($record);
     				fputcsv($handle, array_values((array) $record));
     			}
     			fclose($handle);
