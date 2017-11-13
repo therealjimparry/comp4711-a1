@@ -13,6 +13,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Template view php to use bootstrap
 - Added pagetitle to template view
 
+## 2017-11-12 - SC
+### Added
+- Flight entity unit tests
+
 ## 2017-11-12 - NS
 ### Added 
 - Sessions and a temp 
