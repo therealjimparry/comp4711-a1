@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## 2017-11-13 - YR
+### Added
+- Data variable for airport data "caching" behaviour in wacky api
+- Setup functon in wacky api, for airport as of right now
+
+### Changed
+- Airport Entity, now uses one call to server and then access that local data, instead of multiple calls
+
+### Fixed
+- Massive lag, from average 10 seconds, to 2
+
 ## 2017-11-12 - YR
 ### Added
 - Store method to Model_Controller_Helper

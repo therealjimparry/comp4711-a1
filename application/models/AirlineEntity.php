@@ -94,6 +94,7 @@
         }
 
         public static function create_airline_from_arr_with_api_with_id ($value) {
+            // 3 Seconds
             $arr = WackyAPI::getAirline ($value);
             return new AirlineEntity ($arr["id"], AirportEntity::create_airport_from_id($arr["base"]), AirportEntity::create_airport_from_id($arr["dest1"]), AirportEntity::create_airport_from_id($arr["dest2"]), AirportEntity::create_airport_from_id($arr["dest3"]));            
         }

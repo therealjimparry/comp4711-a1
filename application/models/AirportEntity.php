@@ -93,7 +93,8 @@
         }
 
         public static function create_airport_from_id ($value) {
-            return AirportEntity::create_airport_from_arr (WackyAPI::getAirport($value));
+            // return AirportEntity::create_airport_from_arr (WackyAPI::getAirport($value));
+            return AirportEntity::create_airport_from_arr (WackyAPI::getAirportFromData ($value));
         }
 
     }

@@ -22,6 +22,7 @@
     	 */
     	protected function load()
     	{
+            // 5 seconds
     		//---------------------
     		if (($handle = fopen($this->_origin, "r")) !== FALSE)
     		{
@@ -42,6 +43,7 @@
     						$record->{$this->_fields[$i]} = $data[$i];
                         $key = $record->{$this->_keyfield};
                         
+                        // 1 second every time
                         $record = $this -> convert_record ($record);
                         $this->_data[$key] = $record;
     				}
@@ -50,13 +52,17 @@
     		}
     		// --------------------
     		// rebuild the keys table
-    		$this->reindex();
+            $this->reindex();
         }
         
         function convert_record ($record) {
-            // var_dump ($record);
             return (is_array($record)) ? FlightEntity::create_flight_and_airport_from_arr ($record) : FlightEntity::create_flight_and_airport_from_obj ($record);
         }
+
+        /*
+        function convert_record_eff ($record) {
+            return FlightEntity::create_flight_and_airport_from_obj ($record);
+        } */
 
         // Add a record to the collection
     	function add($record)
