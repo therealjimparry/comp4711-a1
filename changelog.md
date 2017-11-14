@@ -3,6 +3,15 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
+## 2017-11-14 - YR
+### Added
+- Button to access new flight form
+- Fleet add new plane, "edit" works but in progress
+- Routing to fleet is now properly done with regex
+- Hyperlinks on flights aircraft code so that they you can see plane data
+
+### Updated
+- WackyDataModel to call setup function in WackyAPI
 
 ## 2017-11-13 - YR
 ### Added

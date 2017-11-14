@@ -13,6 +13,7 @@
             parent::__construct ();
             $this -> data = WackyAPI::getAirplanes ();
             $this -> convert_to_planes_array ();
+            $this -> getPlanesForDropdown ();
         }
 
         // Convert data recieved in array format from server to an array containing plane objects
@@ -34,6 +35,19 @@
                 if ($record -> id == $which)
                     return $record;
             return null;
+        }
+
+        public function getPlanesForDropdown () {
+            $arr = array();
+            foreach ($this -> data as $key => $record)
+                $arr[$record -> getId()] = $record -> getId ();
+            // array_push ($records, PlanesEntity::create_plane_from_arr ($record));
+            /*return array (
+                $this -> base -> getId () => $this -> base -> getCommunity (),
+                $this -> dest1 -> getId () => $this -> dest1 -> getCommunity (),
+                $this -> dest2 -> getId () => $this -> dest2 -> getCommunity (),
+                $this -> dest3 -> getId () => $this -> dest3 -> getCommunity ()); */
+            return $arr;
         }
 
         // Returns a specific airplane

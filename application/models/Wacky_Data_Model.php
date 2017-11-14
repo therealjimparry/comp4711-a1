@@ -9,7 +9,7 @@
         public function __construct () 
         {
             parent::__construct ();
-            WackyAPI::getAll ();
+            WackyAPI::setup ();
         }
 
     }
