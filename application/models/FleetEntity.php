@@ -3,7 +3,7 @@
     /*
         Model for fleet entity, contains information about an entity in a fleet
      */
-    class FleetEntity extends Entity implements Model_Entity_Controller_Helper{
+    class FleetEntity extends Entity implements Model_Entity_Controller_Helper {
 
         protected $planeId;
         protected $type;
@@ -50,6 +50,10 @@
 
         public function getViewArray () {
             return array ("key" => $this -> planeId, "id" => $this -> type);
+        }
+
+        public function getCSVArray () {
+            return array ("planeId" => $this -> planeId, "type" => $this -> type);
         }
 
         public static function create_fleet_entity_from_obj ($object) {
